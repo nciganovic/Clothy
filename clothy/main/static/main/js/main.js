@@ -14,7 +14,7 @@ function setBlack(){
         items[i].classList.toggle('text-dark');
         items[i].classList.remove('text-light');
     }
-    title.classList.toggle('text-dark');
+    title.classList.toggle('text-dark'); 
     title.classList.remove('text-light');
 }
 function setWhite(){
@@ -26,17 +26,23 @@ function setWhite(){
     title.classList.remove('text-dark');
 }
 
-var navButton = document.querySelector('.navbar-toggler')
-var dropdown = document.querySelector('.collapse');
+var navbarBtn = document.querySelectorAll('.navbar-toggler');
 
-navButton.addEventListener('click', setFullScreen);
+navbarBtn[0].addEventListener('click', setNavbar);
+navbarBtn[1].addEventListener('click', setNavbar);
 
-function setFullScreen(){
-    if(dropdown.classList.contains('navbar-fullscreen')){
-        dropdown.classList.remove('navbar-fullscreen');
+var isFullScreen = false;
+
+function setNavbar(){
+    console.log('navbar button clicked.')
+    var fullScreenNavbar = document.getElementById('fullscreen-navbar');
+    if(!isFullScreen){
+        fullScreenNavbar.style.display = 'block';
+        isFullScreen = true;
     }
     else{
-        dropdown.classList.add('navbar-fullscreen');
+        fullScreenNavbar.style.display = 'none';
+        isFullScreen = false;
     }
-
 }
+
