@@ -7,6 +7,9 @@ body{
     position: relative;
     min-height: 100vh;
 }
+.font-17{
+    font-size: 1.7rem;
+}
 .font-30{
     font-size: 3rem;
 }
@@ -15,9 +18,6 @@ body{
 }
 .font-spec{
     font-family: 'Courgette', cursive;
-}
-.bg_test{
-    background-color: #c1cee3;
 }
 nav:hover{
     background-color: white;
@@ -46,4 +46,35 @@ nav:hover{
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+.vh100{
+    height: 100vh;
+}
+.pb-600{
+    padding-bottom: 600px;
+}
+#bg-img-main{
+    background-image: url('../../main/img/bg-img.jpg');
+}
+.bg-img{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.custom-container{
+    max-width: 1400px;
+    margin: auto;
+}
+.mt-10{
+    margin-top:5%;
+}
+.pos-rel{
+    position: relative;
+}
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
