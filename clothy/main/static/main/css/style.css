@@ -103,8 +103,18 @@ nav:hover{
     overflow: hidden;
     transition: all .3s linear;
 }
-
+/*
 .img-holder:hover img{
     transform: scale(1.2);
+    transition: all .5s linear;
+}
+*/
+.zoom-in{
+    transform: scale(1.2);
+    transition: all .5s linear;
+}
+
+.zoom-out{
+    transform: scale(1.0);
     transition: all .5s linear;
 }

@@ -51,7 +51,13 @@ function setNavbar(){
 
 var isScrolling = false;
 
-$( document ).ready(function() {
+$(document).ready(function() {
+    /* test what is postion on refresh screen*/
+    if ($(this).scrollTop()  > 5 ){
+        $(".navbar").addClass('set-white');
+        setBlack();
+        isScrolling = true;
+    }
     $(window).scroll(function () {
         if ($(this).scrollTop()  > 5 ){
             $(".navbar").addClass('set-white');
