@@ -21,6 +21,19 @@ body{
 }
 nav:hover{
     background-color: white;
+    transition: 0.2s ease-in-out;
+}
+.set-white{
+    background-color: white;
+    transition: 0.2s ease-in-out;
+}
+.text-light{
+    color: black;
+    transition: 0.2s ease-in-out;
+}
+.text-dark{
+    color:white;
+    transition: 0.2s ease-in-out;
 }
 #fullscreen-navbar{
     display: none;
@@ -77,4 +90,7 @@ nav:hover{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.opacity-6{
+    background-color: rgba(0, 0, 0, 0.4);
 }

@@ -2,8 +2,8 @@
 {% load static %}
 {% block content %}
     <div class="container-fluid">
-        <div class="row">
-            <div id="bg-img-main" class="col-12 bg-img d-flex vh100">
+        <div id="bg-img-main" class="row bg-img">
+            <div class="col-12 d-flex vh100 opacity-6">
                 <div class="bg-img-text m-auto w-100">
                     <h1 class="text-center text-light">Welcome to Clothy</h1>
                     <p class="text-center text-light">Best clothes for best people</p>
@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="custom-container mt-10">
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center ml-0 mr-0">
             <div class="col-5">
                 <img class="w-100 pos-rel" src="{% static 'main/img/man.jpg' %}" alt="Man" style="display:block;">
                 <p class="centered text-light font-17">Shop man<p>
