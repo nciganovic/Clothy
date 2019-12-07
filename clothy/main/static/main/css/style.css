@@ -94,3 +94,17 @@ nav:hover{
 .opacity-6{
     background-color: rgba(0, 0, 0, 0.4);
 }
+
+.img-holder img{
+    float: left !important;
+}
+
+.img-holder{
+    overflow: hidden;
+    transition: all .3s linear;
+}
+
+.img-holder:hover img{
+    transform: scale(1.2);
+    transition: all .5s linear;
+}
