@@ -1,6 +1,7 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% block content %}
+    <!-- Start Background image -->
     <div class="container-fluid">
         <div id="bg-img-main" class="row bg-img">
             <div class="col-12 d-flex vh100 opacity-6">
@@ -11,17 +12,45 @@
             </div>
         </div>
     </div>
+    <!-- End Background image -->
+    
     <div class="custom-container mt-10">
+        <!-- Start man and woman divs -->
         <div class="row d-flex justify-content-center ml-0 mr-0">
-            <div class="col-5 mr-1 mb-5 img-holder p-0">
-                <img class="w-100 pos-rel zoom-out" src="{% static 'main/img/man.jpg' %}" alt="Man" style="display:block;">
-                <p class="centered text-light font-17">Shop man<p>
+            <div class="mr-3 mb-5 img-holder p-0">
+                <img class="w-100 zoom-out" src="{% static 'main/img/man-dark.png' %}" alt="Man" style="display:block;">
+                <p class="centered text-light font-17"><a class="text-light" href="#">Shop man</a><p>
             </div>
-            <div class="col-5 mt-5 ml-1 img-holder p-0">
-                <img class="w-100 pos-rel zoom-out" src="{% static 'main/img/woman.jpg' %}" alt="Woman" style="display:block;">
-                <p class="centered text-light font-17">Shop woman<p>
+            <div class="mt-5 ml-3 img-holder p-0">
+                <img class="w-100 zoom-out" src="{% static 'main/img/woman-dark.png' %}" alt="Woman" style="display:block;">
+                <p class="centered text-light font-17"><a class="text-light" href="#">Shop woman</a><p>
             </div>
         </div>
+        <!-- End man and woman divs -->
+        <div class="row mt-5 ml-3 mr-0">
+            <div class="col-12 mt-5 pl-0"><h2 class="font-20 font-weight-bold">Featured this month</h2></div>
+            <div class="bg-gray col-7 d-flex align-items-center flex-column">
+                <h3 class=" mt-5 mb-5 w-100 text-right font-11"><span class="font-weight-bold">Product that is featured </span><span>$89.99</span></h3>  
+                <img style="width: 40%; margin-top: 10%; margin-bottom: 18%; opacity: 0;" src="{% static 'main/img/pullover-index.png' %}">            
+                <img id="po1" class="featured-item centered" style="width: 40%;" src="{% static 'main/img/pullover-index.png' %}"> 
+                <img id="po2" class="featured-item centered" style="width: 40%;" src="{% static 'main/img/pullover-index2.png' %}"> 
+                <img id="po3" class="featured-item centered" style="width: 40%;" src="{% static 'main/img/pullover-index3.png' %}"> 
+                <a id="left-arrow" href="#"><i class="far fa-arrow-alt-circle-left font-17 text-dark"></i></a>
+                <a id="right-arrow" href="#"><i class="far fa-arrow-alt-circle-right font-17 text-dark"></i></a>
+            </div>
+            <div class="col-5 pt-10 pl-4">
+            <p class="font-15">Full description of the featured item. There will be full description of featured item on this place right here.</p> 
+            <p class="mt-5"><a class="text-dark font-13" href="#">Discover the product</a></p>
+            </div>
+        </div>
+      
     </div>
+    <div class="container">
+        
+    </div>
+    
+    <!--Strat featured this month div -->
+
+
     <script src="{% static 'main/js/index.js' %}" type="text/javascript"> </script>
 {% endblock %}

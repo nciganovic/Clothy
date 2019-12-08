@@ -7,11 +7,20 @@ body{
     position: relative;
     min-height: 100vh;
 }
+.font-20{
+    font-size: 2rem;
+}
 .font-17{
     font-size: 1.7rem;
 }
 .font-30{
     font-size: 3rem;
+}
+.font-15{
+    font-size: 1.5rem;
+}
+.font-13{
+    font-size: 1.3rem;
 }
 .font-11{
     font-size: 1.1rem;
@@ -66,6 +75,7 @@ nav:hover{
 .pb-600{
     padding-bottom: 600px;
 }
+/* index.html */
 #bg-img-main{
     background-image: url('../../main/img/bg-img.jpg');
 }
@@ -82,8 +92,11 @@ nav:hover{
 .mt-10{
     margin-top:5%;
 }
-.pos-rel{
-    position: relative;
+.pt-10{
+    padding-top: 10%;
+}
+.mb-5pct{
+    margin-bottom:15%;
 }
 .centered{
     position: absolute;
@@ -102,6 +115,8 @@ nav:hover{
 .img-holder{
     overflow: hidden;
     transition: all .3s linear;
+    width: 47%;
+    position: relative;
 }
 /*
 .img-holder:hover img{
@@ -117,4 +132,20 @@ nav:hover{
 .zoom-out{
     transform: scale(1.0);
     transition: all .5s linear;
+}
+.bg-gray{
+    background-color: #edf2ef
+}
+.fa-arrow-alt-circle-left{
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.fa-arrow-alt-circle-right{
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    position: absolute;
 }
