@@ -115,7 +115,6 @@ nav:hover{
 .img-holder{
     overflow: hidden;
     transition: all .3s linear;
-    width: 47%;
     position: relative;
 }
 /*
@@ -148,4 +147,7 @@ nav:hover{
     left: 75%;
     transform: translate(-50%, -50%);
     position: absolute;
+}
+.w-47{
+    width: 47%;
 }
