@@ -28,11 +28,13 @@ body{
 .font-spec{
     font-family: 'Courgette', cursive;
 }
+/*
 nav:hover{
     background-color: white;
     transition: 0.2s ease-in-out;
 }
-.set-white{
+*/
+.set-white-navbar{
     background-color: white;
     transition: 0.2s ease-in-out;
 }
@@ -55,8 +57,8 @@ nav:hover{
 }
 .display-block-imp{
     display: block !important;
-    margin-top: 25px;
-    margin-left: 17px;
+    margin-top: 35px !important;
+    margin-left: 35px !important;
 }
 .ls-none{
     list-style-type: none;

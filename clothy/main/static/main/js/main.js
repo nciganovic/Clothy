@@ -1,34 +1,48 @@
-var navbar = document.getElementsByTagName('nav');
-navbar = navbar[0]
+$(document).ready(function() {
+    var isScrolling = false;
 
-var title = document.querySelector('.navbar-brand');
-
-navbar.addEventListener('mouseover', setBlack);
-navbar.addEventListener('mouseout', setWhite);
-
-var items = document.getElementsByClassName('nav-link');
-
-function setBlack(){
-    if(!isScrolling){
-        for(let i = 0; i < items.length; i++){
-            items[i].classList.add('text-dark');
-            items[i].classList.remove('text-light');
-        }
-        title.classList.add('text-dark'); 
-        title.classList.remove('text-light');
+    /* test what is postion on refresh screen*/
+    if ($(this).scrollTop()  > 5 ){
+        WhiteNavbarBlackText();
+        isScrolling = true;
     }
-}
-function setWhite(){
-    if(!isScrolling){
-        for(let i = 0; i < items.length; i++){
-            items[i].classList.add('text-light');
-            items[i].classList.remove('text-dark');
+    $(window).scroll(function () {
+        if ($(this).scrollTop()  > 5 ){
+            WhiteNavbarBlackText();
+            isScrolling = true;
         }
-        title.classList.add('text-light');
-        title.classList.remove('text-dark');
-    }
-}
+        else{
+            TransparentNavbarWhiteText();
+            isScrolling = false;
+        }
+    });
 
+    function TransparentNavbarWhiteText(){
+        if(!isScrolling){
+            $(".nav-link").addClass('text-light');
+            $(".nav-link").removeClass('text-dark');
+            $(".navbar-brand").addClass('text-light');
+            $(".navbar-brand").removeClass('text-dark');
+            $(".navbar").removeClass('set-white-navbar');
+        }
+    }
+
+    function WhiteNavbarBlackText(){ 
+        $(".nav-link").addClass('text-dark');
+        $(".nav-link").removeClass('text-light');
+        $(".navbar-brand").addClass('text-dark');
+        $(".navbar-brand").removeClass('text-light');
+        $(".navbar").addClass('set-white-navbar');
+    }
+
+    $(".navbar").on('mouseover', WhiteNavbarBlackText);
+    $(".navbar").on('mouseout', TransparentNavbarWhiteText);
+
+});
+
+
+
+/* START Mobile Navbar */
 var navbarBtn = document.querySelectorAll('.navbar-toggler');
 
 navbarBtn[0].addEventListener('click', setNavbar);
@@ -48,28 +62,6 @@ function setNavbar(){
         isFullScreen = false;
     }
 }
+/* END Mobile Navbar */
 
-var isScrolling = false;
-
-$(document).ready(function() {
-    /* test what is postion on refresh screen*/
-    if ($(this).scrollTop()  > 5 ){
-        $(".navbar").addClass('set-white');
-        setBlack();
-        isScrolling = true;
-    }
-    $(window).scroll(function () {
-        if ($(this).scrollTop()  > 5 ){
-            $(".navbar").addClass('set-white');
-            setBlack();
-            isScrolling = true;
-        }
-        else{
-            $(".navbar").removeClass('set-white');
-            isScrolling = false;
-            setWhite();
-            console.log('Navbar on top.');
-        }
-    });
-});
 
