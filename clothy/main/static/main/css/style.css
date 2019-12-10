@@ -69,7 +69,7 @@ nav:hover{
     bottom: 0;
     width: 100%;
 }
-.vh100{
+.vh100-l-vh80-m-vh60-s{
     height: 100vh;
 }
 .pb-600{
@@ -148,6 +148,6 @@ nav:hover{
     transform: translate(-50%, -50%);
     position: absolute;
 }
-.w-47{
+.w47-l-w100-m{
     width: 47%;
 }
