@@ -73,7 +73,6 @@ WSGI_APPLICATION = 'clothy.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -82,7 +81,7 @@ DATABASES = {
         },
         'NAME': 'clothy_db',
         'USER': 'nciganovic',
-        'PASSWORD': '3108999nc',
+        'PASSWORD': os.environ.get("A_CLOTHYDB_PASSWORD"),
 
     }
 }
