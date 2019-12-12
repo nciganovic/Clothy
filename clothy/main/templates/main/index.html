@@ -31,16 +31,16 @@
         <div class="row mt-5 ml-3 mr-3">
             <div class="col-12 mt-5 pl-0"><h2 class="font-20 font-weight-bold featured-h2">Featured this month</h2></div>
             <div class="bg-gray col-lg-7 col-md-12 d-flex align-items-center flex-column">
-                <h3 class=" mt-5 mb-5 w-100 text-right font-11"><span class="font-weight-bold">Product that is featured </span><span>$89.99</span></h3>  
+                <h3 class=" mt-5 mb-5 w-100 text-right font-11"><span class="font-weight-bold">{{ product.name }} </span><span>${{ product.price }}</span></h3>  
                 <img style="width: 40%; margin-top: 10%; margin-bottom: 18%; opacity: 0;" src="{% static 'main/img/pullover-index.png' %}">            
-                <img id="po1" class="featured-item centered" style="width: 40%;" src="{% static 'main/img/pullover-index.png' %}"> 
-                <img id="po2" class="featured-item centered" style="width: 40%;" src="{% static 'main/img/pullover-index2.png' %}"> 
-                <img id="po3" class="featured-item centered" style="width: 40%;" src="{% static 'main/img/pullover-index3.png' %}"> 
+                <img id="po1" class="featured-item centered" style="width: 40%;" src="{{ images.image_1.url }}"> 
+                <img id="po2" class="featured-item centered" style="width: 40%;" src="{{ images.image_2.url }}"> 
+                <img id="po3" class="featured-item centered" style="width: 40%;" src="{{ images.image_3.url }}"> 
                 <a id="left-arrow" href="#"><i class="far fa-arrow-alt-circle-left font-17 text-dark"></i></a>
                 <a id="right-arrow" href="#"><i class="far fa-arrow-alt-circle-right font-17 text-dark"></i></a>
             </div>
             <div class="col-lg-5 col-md-12 pt-10 pl-4 featured-desc">
-                <p class="font-15">Full description of the featured item. There will be full description of featured item on this place right here.</p> 
+                <p class="font-15">{{ product.description }}</p> 
                 <p class="mt-5"><a class="text-dark font-13" href="#">Discover the product</a></p>
             </div>
         </div>

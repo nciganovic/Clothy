@@ -42,6 +42,7 @@ class Image(models.Model):
     def __str__(self):
         """When class Cagories is called, category_name will be displayed"""
         return str(self.name)
+        
 class FeaturedProduct(models.Model):
     name = models.ForeignKey(Product, on_delete=models.CASCADE)
     def __str__(self):
