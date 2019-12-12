@@ -8,6 +8,7 @@
         <i class="fas fa-times nav-link-mob text-dark display-block-imp"></i>
       </button>
       <ul class="ls-none font-11">
+        <!--
           <li class="nav-item ml-4 mt-3">
             <a class="nav-link-mob ml-4 mr-2 text-dark" href="#">Man</a>
           </li>
@@ -17,6 +18,12 @@
           <li class="nav-item ml-4 mt-3">
             <a class="nav-link-mob ml-4 mr-2 text-dark" href="#">Kids</a>
           </li>
+        -->
+          {% for c in category %}
+          <li class="nav-item ml-4 mt-3">
+            <a class="nav-link-mob ml-4 mr-2 text-dark" href="../{{ c.category_slug }}">{{ c.category_name }}</a>
+          </li>
+          {% endfor %}
           <li class="nav-item ml-4 mt-5">
             <a class="nav-link-mob ml-4 mr-2 text-dark" href="#">Login</a>
           </li>
@@ -31,9 +38,10 @@
           </li>
         </ul>
     </div>
-    <a class="navbar-brand font-30 font-spec ml-4 text-light" href="#">Clothyy</a>
+    <a class="navbar-brand font-30 font-spec ml-4 text-light" href="/">Clothyy</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0 font-11 ml-4">
+      <!--
         <li class="nav-item ml-2 mr-2">
             <a class="nav-link text-light" href="#">Man</a>
         </li>
@@ -43,6 +51,12 @@
         <li class="nav-item ml-2 mr-2">
             <a class="nav-link text-light" href="#">Kids</a>
         </li>
+      -->
+        {% for c in category %}
+        <li class="nav-item ml-2 mr-2">
+            <a class="nav-link text-light" href="../{{c.category_slug}}">{{c.category_name}}</a>
+        </li>
+        {% endfor %}
       </ul>
       
       <ul class="navbar-nav mr-right mt-2 mt-lg-0 font-11 ml-4 mr-4 text-light">

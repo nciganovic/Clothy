@@ -5,6 +5,8 @@ from clothy import settings
 
 urlpatterns = [
     path('', views.index, name="index"),
+    path('<category_slug>', views.category_slug, name="category slug"),
+    path('<category_slug>/<product_slug>', views.product_slug, name="product slug")
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)

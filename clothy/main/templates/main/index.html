@@ -19,11 +19,11 @@
         <div class="row d-flex justify-content-center ml-0 mr-0">
             <div class="mr-3 mb-5 img-holder p-0 w47-l-w100-m align-on-small">
                 <img class="w-100 zoom-out" src="{% static 'main/img/man-dark.jpg' %}" alt="Man">
-                <p class="centered text-light font-17"><a class="text-light" href="#">Shop man</a><p>
+                <p class="centered text-light font-17"><a class="text-light" href="{{ man_category.category_slug }}">Shop man</a><p>
             </div>
             <div class="mt-5 ml-3 img-holder p-0 w47-l-w100-m align-on-small mt-0-small">
                 <img class="w-100 zoom-out" src="{% static 'main/img/woman-dark.jpg' %}" alt="Woman" style="display:block;">
-                <p class="centered text-light font-17"><a class="text-light" href="#">Shop woman</a><p>
+                <p class="centered text-light font-17"><a class="text-light" href="{{ woman_category.category_slug }}">Shop woman</a><p>
             </div>
         </div>
         <!-- End man and woman divs -->
@@ -59,7 +59,7 @@
             </div>
             <div class="img-holder border mt-5 ml-3 mr-3 margin-zero-xs">
                 <img class="w-100 zoom-out" src="{% static 'main/img/kids-dark.jpg' %}" alt="Woman" style="display:block;">
-                <p class="centered text-light font-17"><a class="text-light" href="#">Shop kids</a><p>
+                <p class="centered text-light font-17"><a class="text-light" href="{{ kids_category.category_slug }}">Shop kids</a><p>
             </div>
         </div>
         <!-- End Lower third  -->

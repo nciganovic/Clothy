@@ -1,0 +1,10 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<br><br><br><br>
+    <h1>{{ this_category.category_name }}</h1>
+    {% for p in this_products %}
+        <p>{{ p.name }} <a href="{{ this_category.category_slug }}/{{ p.product_slug }}">Go</a></p>
+    {% endfor %}
+    <p></p>
+{% endblock %}
