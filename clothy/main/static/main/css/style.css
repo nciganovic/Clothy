@@ -153,3 +153,22 @@ nav:hover{
 .w47-l-w100-m{
     width: 47%;
 }
+/* categories.html */
+.vh60{
+    height: 60vh;
+}
+#bg-img-man{
+    background-image: url('../../main/img/bg-man.jpg');
+}
+.w-60{
+    width: 60%;
+}
+.product-in-category{
+    position: relative;
+}
+.view{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 75%;
+    left: 50%;
+}
