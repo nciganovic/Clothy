@@ -160,6 +160,12 @@ nav:hover{
 #bg-img-man{
     background-image: url('../../main/img/bg-man.jpg');
 }
+#bg-img-woman{
+    background-image: url('../../main/img/bg-woman.jpg');
+}
+#bg-img-kids{
+    background-image: url('../../main/img/bg-kids.jpg');
+}
 .w-60{
     width: 60%;
 }

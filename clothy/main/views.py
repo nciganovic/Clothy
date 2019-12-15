@@ -1,18 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
-from .models import Product, Image, FeaturedProduct, Category
+from .models import Product, Category
 
 def index(request):
     tmpl = "main/index.html"
     featured_product = Product.objects.get(name="Shirt 1")
-    images = Image.objects.get(name__name="Shirt 1")
     category = Category.objects.all()
     man_category = Category.objects.get(category_name="Man")
     woman_category = Category.objects.get(category_name="Woman")
     kids_category = Category.objects.get(category_name="Kids")
     context={
         "product":featured_product,
-        "images": images,
         "category": category,
         "man_category":man_category,
         "woman_category":woman_category,
@@ -27,10 +25,20 @@ def category_slug(requset, category_slug):
     if category_slug in categories:
         matching_category = Category.objects.filter(category_slug=category_slug)
         matching_products = Product.objects.filter(category_name__category_slug=category_slug)
+        
+        if str(matching_category[0]) == 'Man':
+            cover_image_id = 'bg-img-man'
+        elif str(matching_category[0]) == 'Woman':
+            cover_image_id = 'bg-img-woman'
+        elif str(matching_category[0]) == 'Kids':
+            cover_image_id = 'bg-img-kids'
+
+        print(cover_image_id)
         context={
             "this_category": matching_category[0],
             "this_products": matching_products,
             "category": all_categories,
+            "cover_image_id": cover_image_id,
         }
         
         return render(requset, tmpl, context)

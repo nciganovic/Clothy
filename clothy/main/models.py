@@ -30,21 +30,9 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     date = models.DateTimeField('date published', default=timezone.now)
     product_slug = models.SlugField(max_length=50) #, unique=True, default="blog slug"
-    def __str__(self):
-        """When class Cagories is called, category_name will be displayed"""
-        return self.name
-
-class Image(models.Model):
-    name = models.ForeignKey(Product, on_delete=models.CASCADE)
     image_1 = models.ImageField(upload_to="product_images", default=None)
     image_2 = models.ImageField(upload_to="product_images", default=None)
     image_3 = models.ImageField(upload_to="product_images", default=None)
     def __str__(self):
         """When class Cagories is called, category_name will be displayed"""
-        return str(self.name)
-        
-class FeaturedProduct(models.Model):
-    name = models.ForeignKey(Product, on_delete=models.CASCADE)
-    def __str__(self):
-        """When class Cagories is called, category_name will be displayed"""
-        return str(self.name)
+        return self.name

@@ -23,4 +23,11 @@ $(document).ready(function(){
     },function(){
         $(this).next().stop(true,true).animate({'opacity':'0'}, 250);
     })
+
+    $('.size').each(function(i){
+        var fullStr =  $(this).text(); //['S', 'XL', 'XXL', 'M']
+        var strWithoutBrackets = fullStr.substring(1,fullStr.length-1); // 'S', 'XL', 'XXL', 'M'
+        strWithoutBrackets = strWithoutBrackets.replace(/\'/g,''); // S, XL, XXL, M
+        $(this).text(strWithoutBrackets);
+    })
 })

@@ -33,9 +33,9 @@
             <div class="bg-gray col-lg-7 col-md-12 d-flex align-items-center flex-column">
                 <h3 class=" mt-5 mb-5 w-100 text-right font-11"><span class="font-weight-bold">{{ product.name }} </span><span>${{ product.price }}</span></h3>  
                 <img style="width: 40%; margin-top: 10%; margin-bottom: 18%; opacity: 0;" src="{% static 'main/img/pullover-index.png' %}">            
-                <img id="po1" class="featured-item centered" style="width: 40%;" src="{{ images.image_1.url }}"> 
-                <img id="po2" class="featured-item centered" style="width: 40%;" src="{{ images.image_2.url }}"> 
-                <img id="po3" class="featured-item centered" style="width: 40%;" src="{{ images.image_3.url }}"> 
+                <img id="po1" class="featured-item centered" style="width: 40%;" src="{{ product.image_1.url }}"> 
+                <img id="po2" class="featured-item centered" style="width: 40%;" src="{{ product.image_2.url }}"> 
+                <img id="po3" class="featured-item centered" style="width: 40%;" src="{{ product.image_3.url }}"> 
                 <a id="left-arrow" href="#"><i class="far fa-arrow-alt-circle-left font-17 text-dark"></i></a>
                 <a id="right-arrow" href="#"><i class="far fa-arrow-alt-circle-right font-17 text-dark"></i></a>
             </div>

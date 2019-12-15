@@ -3,18 +3,19 @@
 {% block content %}
     <!--Start Cover image category-->
     <div class="container-fluid">
-        <div id="bg-img-man" class="row bg-img">
+        <div id="{{cover_image_id}}" class="row bg-img">
             <div class="col-12 d-flex vh60 opacity-6">
                 <div class="bg-img-text m-auto w-100">
-                    <h1 class="text-center text-light">Man</h1>
+                    <h1 class="text-center text-light">{{ this_category.category_name }}</h1>
                 </div>
             </div>
         </div>
     </div>
     <!--End Cover image category-->
-    <!--Start tags for category-->
+    
     <div class="custom-container">
-        <div class="row mt-5 mb-5">
+        <!--Start tags for category-->
+        <div class="row mt-5 mb-5 ml-0 mr-0">
             <div class="col-12 d-flex justify-content-center">
                 <div class="m-2"><a class="font-15 text-dark text-decoration-none" href="#">Tag 1</a></div>
                 <div class="m-2"><a class="font-15 text-dark text-decoration-none" href="#">Tag 2</a></div>
@@ -22,102 +23,26 @@
                 <div class="m-2"v><a class="font-15 text-dark text-decoration-none" href="#">Tag 4</a></div>
             </div>
         </div>
-        <div class="row">
+        
+        <div class="row ml-0 mr-0">
+            {% for p in this_products %}
             <div class="col-3">
                 <div class="product-in-category bg-gray d-flex">
                     <div class="w-60 m-auto">
-                        <img class="w-100 mt-5 mb-5 img1" src="{% static 'main/img/pullover-index.png' %}" alt="img">
-                        <img class="w-100 mt-5 mb-5 img2" src="{% static 'main/img/pullover-index2.png' %}" alt="img">
+                        <img class="w-100 mt-5 mb-5 img1" src="{{ p.image_1.url }}" alt="img">
+                        <img class="w-100 mt-5 mb-5 img2" src="{{ p.image_2.url }}" alt="img">
                     </div>
-                    <a href="" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
+                    <a href="{{ this_category.category_slug }}/{{ p.product_slug }}" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
                 </div>
-                <p class="font-weight-bold mt-3 mb-1 name-of-product">Name of product <span class="font-weight-normal">$39.99</span></p>
-                <p class="size">SIZE</p>
+                <p class="font-weight-bold mt-3 mb-1 name-of-product">{{ p.name }} <span class="font-weight-normal">{{ p.price }}</span></p>
+                <p class="size">{{ p.size }}</p>
             </div>
-            <div class="col-3">
-                <div class="product-in-category bg-gray d-flex">
-                    <div class="w-60 m-auto">
-                        <img class="w-100 mt-5 mb-5 img1" src="{% static 'main/img/pullover-index.png' %}" alt="img">
-                        <img class="w-100 mt-5 mb-5 img2" src="{% static 'main/img/pullover-index2.png' %}" alt="img">
-                    </div>
-                    <a href="" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
-                </div>
-                <p class="font-weight-bold mt-3 mb-1 name-of-product">Name of product <span class="font-weight-normal">$39.99</span></p>
-                <p class="size">SIZE</p>
-            </div>
-            <div class="col-3">
-                <div class="product-in-category bg-gray d-flex">
-                    <div class="w-60 m-auto">
-                        <img class="w-100 mt-5 mb-5 img1" src="{% static 'main/img/pullover-index.png' %}" alt="img">
-                        <img class="w-100 mt-5 mb-5 img2" src="{% static 'main/img/pullover-index2.png' %}" alt="img">
-                    </div>
-                    <a href="" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
-                </div>
-                <p class="font-weight-bold mt-3 mb-1 name-of-product">Name of product <span class="font-weight-normal">$39.99</span></p>
-                <p class="size">SIZE</p>
-            </div>
-            <div class="col-3">
-                <div class="product-in-category bg-gray d-flex">
-                    <div class="w-60 m-auto">
-                        <img class="w-100 mt-5 mb-5 img1" src="{% static 'main/img/pullover-index.png' %}" alt="img">
-                        <img class="w-100 mt-5 mb-5 img2" src="{% static 'main/img/pullover-index2.png' %}" alt="img">
-                    </div>
-                    <a href="" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
-                </div>
-                <p class="font-weight-bold mt-3 mb-1 name-of-product">Name of product <span class="font-weight-normal">$39.99</span></p>
-                <p class="size">SIZE</p>
-            </div>
-            <!--ROW-->
-            <div class="col-3">
-                <div class="product-in-category bg-gray d-flex">
-                    <div class="w-60 m-auto">
-                        <img class="w-100 mt-5 mb-5 img1" src="{% static 'main/img/pullover-index.png' %}" alt="img">
-                        <img class="w-100 mt-5 mb-5 img2" src="{% static 'main/img/pullover-index2.png' %}" alt="img">
-                    </div>
-                    <a href="" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
-                </div>
-                <p class="font-weight-bold mt-3 mb-1 name-of-product">Name of product <span class="font-weight-normal">$39.99</span></p>
-                <p class="size">SIZE</p>
-            </div>
-            <div class="col-3">
-                <div class="product-in-category bg-gray d-flex">
-                    <div class="w-60 m-auto">
-                        <img class="w-100 mt-5 mb-5 img1" src="{% static 'main/img/pullover-index.png' %}" alt="img">
-                        <img class="w-100 mt-5 mb-5 img2" src="{% static 'main/img/pullover-index2.png' %}" alt="img">
-                    </div>
-                    <a href="" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
-                </div>
-                <p class="font-weight-bold mt-3 mb-1 name-of-product">Name of product <span class="font-weight-normal">$39.99</span></p>
-                <p class="size">SIZE</p>
-            </div>
-            <div class="col-3">
-                <div class="product-in-category bg-gray d-flex">
-                    <div class="w-60 m-auto">
-                        <img class="w-100 mt-5 mb-5 img1" src="{% static 'main/img/pullover-index.png' %}" alt="img">
-                        <img class="w-100 mt-5 mb-5 img2" src="{% static 'main/img/pullover-index2.png' %}" alt="img">
-                    </div>
-                    <a href="" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
-                </div>
-                <p class="font-weight-bold mt-3 mb-1 name-of-product">Name of product <span class="font-weight-normal">$39.99</span></p>
-                <p class="size">SIZE</p>
-            </div>
-            <div class="col-3">
-                <div class="product-in-category bg-gray d-flex">
-                    <div class="w-60 m-auto">
-                        <img class="w-100 mt-5 mb-5 img1" src="{% static 'main/img/pullover-index.png' %}" alt="img">
-                        <img class="w-100 mt-5 mb-5 img2" src="{% static 'main/img/pullover-index2.png' %}" alt="img">
-                    </div>
-                    <a href="" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
-                </div>
-                <p class="font-weight-bold mt-3 mb-1 name-of-product">Name of product <span class="font-weight-normal">$39.99</span></p>
-                <p class="size">SIZE</p>
-            </div>
+            {% endfor %}
         </div>
     </div>
 
     <script type="text/javascript" src="{% static 'main/js/category.js' %}"></script> 
 
-    <!--End tags for category-->
 <!--
     <h1>{{ this_category.category_name }}</h1>
     {% for p in this_products %}
