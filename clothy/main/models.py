@@ -18,6 +18,12 @@ class Category(models.Model):
         """When class Cagories is called, category_name will be displayed"""
         return self.category_name
 
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        """When class Cagories is called, category_name will be displayed"""
+        return self.name
+
 class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
@@ -33,6 +39,7 @@ class Product(models.Model):
     image_1 = models.ImageField(upload_to="product_images", default=None)
     image_2 = models.ImageField(upload_to="product_images", default=None)
     image_3 = models.ImageField(upload_to="product_images", default=None)
+    tag_name = models.ForeignKey(Tag, on_delete=models.CASCADE, default=None)
     def __str__(self):
         """When class Cagories is called, category_name will be displayed"""
         return self.name

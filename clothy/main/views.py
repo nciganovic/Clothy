@@ -4,7 +4,7 @@ from .models import Product, Category
 
 def index(request):
     tmpl = "main/index.html"
-    featured_product = Product.objects.get(name="Shirt 1")
+    featured_product = Product.objects.get(name="Classic man sweatshirt")
     category = Category.objects.all()
     man_category = Category.objects.get(category_name="Man")
     woman_category = Category.objects.get(category_name="Woman")
@@ -25,7 +25,20 @@ def category_slug(requset, category_slug):
     if category_slug in categories:
         matching_category = Category.objects.filter(category_slug=category_slug)
         matching_products = Product.objects.filter(category_name__category_slug=category_slug)
+
+        #getting all the different tags for current category
+        all_tags = [mp.tag_name for mp in matching_products]
+        collection_of_tags = []
+        for at in all_tags:
+            if at not in collection_of_tags:
+                collection_of_tags.append(at)
+
+        matching_product_filterd_tags = {}
+        for idx, c in enumerate(collection_of_tags):
+            matching_product_filterd_tags[f'pt{idx}'] = Product.objects.filter(tag_name=c, category_name__category_slug=category_slug)
         
+        print("-->", matching_product_filterd_tags.values())
+
         if str(matching_category[0]) == 'Man':
             cover_image_id = 'bg-img-man'
         elif str(matching_category[0]) == 'Woman':
@@ -33,12 +46,13 @@ def category_slug(requset, category_slug):
         elif str(matching_category[0]) == 'Kids':
             cover_image_id = 'bg-img-kids'
 
-        print(cover_image_id)
         context={
             "this_category": matching_category[0],
             "this_products": matching_products,
             "category": all_categories,
             "cover_image_id": cover_image_id,
+            "this_tags":collection_of_tags,
+            "mpft":matching_product_filterd_tags.values(),
         }
         
         return render(requset, tmpl, context)

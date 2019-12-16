@@ -17,10 +17,9 @@
         <!--Start tags for category-->
         <div class="row mt-5 mb-5 ml-0 mr-0">
             <div class="col-12 d-flex justify-content-center">
-                <div class="m-2"><a class="font-15 text-dark text-decoration-none" href="#">Tag 1</a></div>
-                <div class="m-2"><a class="font-15 text-dark text-decoration-none" href="#">Tag 2</a></div>
-                <div class="m-2"><a class="font-15 text-dark text-decoration-none" href="#">Tag 3</a></div>
-                <div class="m-2"v><a class="font-15 text-dark text-decoration-none" href="#">Tag 4</a></div>
+                {% for tag in this_tags %}
+                <div class="m-2"><a class="font-15 text-dark text-decoration-none" href="#">{{ tag }}</a></div>
+                {% endfor %}
             </div>
         </div>
         
@@ -39,6 +38,14 @@
             </div>
             {% endfor %}
         </div>
+
+        {% for x in mpft %}
+            {% for y in x %}
+                <p>{{ y.tag_name }}</p>
+            {% endfor %}
+            <br>
+        {% endfor %}
+
     </div>
 
     <script type="text/javascript" src="{% static 'main/js/category.js' %}"></script> 
