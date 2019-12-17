@@ -1,9 +1,24 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% block content %}
-<br><br><br><br>
-    <h1>{{ this_category.category_name }}</h1>
+<div class="container-fluid nav-white">
+    <div class="row">
+        <div class="col-7 bg-gray mt-100px d-flex" style="overflow:hidden;">
+            <p class="pos-abs-top-left"><a href="#">Back to products</a></p>
+            
+            <img class="pos-rel w-75 pos-rel m-auto" style="opacity: 0;" src="{{ this_product.image_1.url }}">
+            <img class="w-75 centered product-image" src="{{ this_product.image_1.url }}" alt="{{ this_product.name }}">
+            <img class="w-75 centered product-image" src="{{ this_product.image_2.url }}" alt="{{ this_product.name }}">
+            <img class="w-75 centered product-image" src="{{ this_product.image_3.url }}" alt="{{ this_product.name }}">
+            
+            
+            <a id="left-arrow" href="#"><i class="far fa-arrow-alt-circle-left font-17 text-dark left-10"></i></a>
+            <a id="right-arrow" href="#"><i class="far fa-arrow-alt-circle-right font-17 text-dark left-90"></i></a>
+        </div>
+        <div class="col-5">
+        </div>
+    </div>
+</div>
 
-    <p>{{ this_product.name }}</p>
-    
+<script src="{% static 'main/js/productSlider.js' %}" type="text/javascript"> </script>    
 {% endblock %}

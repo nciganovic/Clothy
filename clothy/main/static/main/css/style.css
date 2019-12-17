@@ -181,3 +181,21 @@ nav:hover{
 .underline-on-hover:hover{
     text-decoration: underline;
 }
+/*product.html*/
+.mt-100px{
+    margin-top: 100px;
+}
+.pos-rel{
+    position: relative;
+}
+.pos-abs-top-left{
+    position: absolute;
+    top: 0px; 
+    left: 0px; 
+}
+.left-10{
+    left: 10%;
+}
+.left-90{
+    left: 90%;
+}

@@ -1,13 +1,18 @@
 $(document).ready(function() {
     var isScrolling = false;
+    var distanceToTriggerChange = 5;
 
+    if($('.container-fluid').hasClass('nav-white')){
+        distanceToTriggerChange = -1;
+    }
+    
     /* test what is postion on refresh screen*/
-    if ($(this).scrollTop()  > 5 ){
+    if ($(this).scrollTop()  > distanceToTriggerChange ){
         WhiteNavbarBlackText();
         isScrolling = true;
     }
     $(window).scroll(function () {
-        if ($(this).scrollTop()  > 5 ){
+        if ($(this).scrollTop()  > distanceToTriggerChange ){
             WhiteNavbarBlackText();
             isScrolling = true;
         }
