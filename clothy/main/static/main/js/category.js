@@ -30,4 +30,26 @@ $(document).ready(function(){
         strWithoutBrackets = strWithoutBrackets.replace(/\'/g,''); // S, XL, XXL, M
         $(this).text(strWithoutBrackets);
     })
+
+    //Filtering products by tag names
+    var namesOfTags = []
+    
+    $('.single-tag').each(function(i){
+        namesOfTags.push($(this).text()) 
+    })
+
+    $('.single-tag').click(function(e){
+        e.preventDefault();
+        var tagValue = $(this).text();
+
+        $('.single-product').each(function(i){
+            if($(this).hasClass(tagValue)){
+                $(this).show();
+            }
+            else{
+                $(this).hide();
+            }
+        })
+    })
+    
 })

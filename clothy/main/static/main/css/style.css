@@ -178,3 +178,6 @@ nav:hover{
     top: 75%;
     left: 50%;
 }
+.underline-on-hover:hover{
+    text-decoration: underline;
+}
