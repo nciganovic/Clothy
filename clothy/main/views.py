@@ -67,10 +67,14 @@ def product_slug(request, category_slug, product_slug):
     if product_slug in products:
         matching_category = Category.objects.filter(category_slug=category_slug)
         matching_product = Product.objects.filter(product_slug=product_slug) 
+        similar_products = Product.objects.filter(category_name__category_slug=category_slug).exclude(product_slug=product_slug)[:4] #TODO change later to also filter for tags
+        for s in similar_products:
+            print('Product ->', s)
         context={
             "category":all_categories,
             "this_product": matching_product[0],
             "this_category": matching_category[0],
+            "similar_products":similar_products,
         }
         return render(request, tmpl, context)
     else:

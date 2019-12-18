@@ -25,6 +25,9 @@ body{
 .font-11{
     font-size: 1.1rem;
 }
+.font-08{
+    font-size: 0.8rem;
+}
 .font-spec{
     font-family: 'Courgette', cursive;
 }
@@ -198,4 +201,28 @@ nav:hover{
 }
 .left-90{
     left: 90%;
+}
+#size{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 1.2rem;
+}
+#btn{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 1.4rem;
+    width:50%;
+    background-color: rgb(32, 32, 32);
+    color: white;
+    border: 0px;
+}
+#btn:hover{
+    background-color: rgb(104, 103, 103);
+}
+.color-gray{
+    color: gray;
 }
