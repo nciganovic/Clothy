@@ -13,7 +13,8 @@ for(let i = 0; i < arrayOfSizes.length; i++){
 
 /* Hide and show text */
 $('.shipping').hide();
-$('.del-and-ret').click(function() {
+$('.del-and-ret').click(function(e) {
+    e.preventDefault();
     $('.shipping').slideToggle();
     $('.plus-sign').toggleClass('fa-plus');
     $('.plus-sign').toggleClass('fa-minus');

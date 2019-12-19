@@ -3,8 +3,8 @@
 {% block content %}
 <div class="container-fluid nav-white pl-0 pr-0">
     <div class="row ml-0 mr-0">
-        <div class="col-7 bg-gray mt-100px d-flex" style="overflow:hidden;">
-            <p class="pos-abs-top-left left-10 mt-5"><a class="text-dark" href="#"><i class="fas fa-arrow-left"></i> Back to products</a></p>
+        <div class="col-xl-7 col-lg-12 bg-gray mt-100px d-flex" style="overflow:hidden;">
+            <p class="pos-abs-top-left left-10 mt-5 d-none-lg"><a class="text-dark" href="#"><i class="fas fa-arrow-left"></i> Back to products</a></p>
             
             <img class="pos-rel w-60 pos-rel m-auto" style="padding-top: 10%; padding-bottom: 10%; opacity: 0;" src="{{ this_product.image_1.url }}">
             <img class="w-60 centered product-image" src="{{ this_product.image_1.url }}" alt="{{ this_product.name }}">
@@ -14,20 +14,23 @@
             <a id="left-arrow" href="#"><i class="far fa-arrow-alt-circle-left font-17 text-dark left-10"></i></a>
             <a id="right-arrow" href="#"><i class="far fa-arrow-alt-circle-right font-17 text-dark left-90"></i></a>
         </div>
-        <div class="col-5 mt-100px d-flex justify-content-center">
-            <div class="product-info w-75 mt-5">
+        <div class="col-xl-5 col-lg-12 mt-100px d-flex justify-content-center mt-0-lg">
+            <div class="product-info w-75 mt-5 mt-0-lg">
                 <p class="mt-5 font-13 color-gray">{{ this_category }} / {{ this_product.tag_name }}</p>
-                <p class="font-15">{{ this_product.name }} - ${{ this_product.price }}</p>
-                <p class="font-11 w-50">{{ this_product.description }}</p>
+                <p class="font-15 font-11-sm">{{ this_product.name }} - ${{ this_product.price }}</p>
+                <p class="font-11 w-50 change-on-sm">{{ this_product.description }}</p>
                 <select id="size" data="{{ this_product.size }}">
                 </select><br><br>
                 <input type="button" id="btn" value="Add to cart">
-                <p class="mt-4 del-and-ret"><a class="text-dark" href="#">Delivery and returns <i style="font-size: 0.7rem;" class="plus-sign fas fa-plus"></i></a></p>
+                <p class="mt-4"><a class="text-dark del-and-ret" href="#">Delivery and returns <i style="font-size: 0.7rem;" class="plus-sign fas fa-plus"></i></a></p>
                 <p class="font-08 w-60 shipping">We ship worldwide. Always free returns. Free shipping on Finnish orders over 100€ and international orders over 200€. 30 days return and exchange period. For orders outside the EU, Finnish VAT (24%) will be deducted from order total at checkout.</p>
             </div>
         </div>
     </div>
      <div class="row ml-0 mr-0 mt-5">
+        <div class="col-12 ml-5">
+            <h2>Related products</h2>
+        </div>
             {% for s in similar_products %}
                 <div class="col-lg-3 col-md-4 col-sm-6 single-product {{s.tag_name}}">
                     <div class="product-in-category bg-gray d-flex">
@@ -35,9 +38,9 @@
                             <img class="w-100 mt-5 mb-5 img1" src="{{ s.image_1.url }}" alt="img">
                             <img class="w-100 mt-5 mb-5 img2" src="{{ s.image_2.url }}" alt="img">
                         </div>
-                        <a href="{{ this_category.category_slug }}/{{ s.product_slug }}" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
+                        <a href="../{{ this_category.category_slug }}/{{ s.product_slug }}" class="view bg-light pl-4 pr-4 pt-3 pb-3 font-weight-bold text-dark text-decoration-none">View</a>
                     </div>
-                    <p class="font-weight-bold mt-3 mb-1 name-of-product">{{ s.name }} <span class="font-weight-normal">{{ s.price }}</span></p>
+                    <p class="font-weight-bold mt-3 mb-1 name-of-product">{{ s.name }} <span class="font-weight-normal">${{ s.price }}</span></p>
                 </div>
             {% endfor %}
      </div>

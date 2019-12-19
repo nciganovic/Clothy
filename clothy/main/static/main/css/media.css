@@ -10,6 +10,12 @@
         width:80%;
         margin-right: 0px !important;
     }
+    .mt-0-lg{
+        margin-top: 0px;
+    }
+    .d-none-lg{
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -58,6 +64,19 @@
     }
     .mt-0-small{
         margin-top: 0px !important;
+    }
+    .font-11-sm{
+        font-size: 1.1rem;
+    }
+    .change-on-sm{
+        font-size: 1rem;
+        width: 80% !important;
+    }
+    #btn{
+        width: 75%;
+    }
+    .shipping{
+        width: 100%;
     }
 }
 
