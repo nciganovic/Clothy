@@ -78,6 +78,10 @@
     .shipping{
         width: 100%;
     }
+    .h2-holder h2{
+        padding: 0px;
+        font-size: 1.5rem;
+    }
 }
 
 

@@ -226,3 +226,49 @@ nav:hover{
 .color-gray{
     color: gray;
 }
+/* modal.html */
+#background-modal{
+    width: 100%; 
+    height: 100vh;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.527);
+}
+#block-modal{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    background-color: white;
+    z-index: 10000;
+}
+.input{
+    border: 0; 
+    box-shadow: 0px;
+    outline: 0;
+    border-bottom: 1px solid black;
+    width: 80%;
+}
+.input-holder{
+    width: 80%;
+}
+#loginBtn{
+    padding: 5px 20px;
+    border: 0px; 
+    background-color: rgb(78, 143, 78);
+    color: white;
+}
+.qwe{
+    margin: 0px !important;
+}
+.modal-header{
+    position: relative;
+}
+.close-modal{
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+}
