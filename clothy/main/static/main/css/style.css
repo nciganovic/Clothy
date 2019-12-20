@@ -236,7 +236,7 @@ nav:hover{
     z-index: 9999;
     background-color: rgba(0, 0, 0, 0.527);
 }
-#block-modal{
+.modal-holder{
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -256,6 +256,12 @@ nav:hover{
     width: 80%;
 }
 #loginBtn{
+    padding: 5px 20px;
+    border: 0px; 
+    background-color: rgb(78, 143, 78);
+    color: white;
+}
+#regBtn{
     padding: 5px 20px;
     border: 0px; 
     background-color: rgb(78, 143, 78);

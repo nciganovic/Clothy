@@ -13,4 +13,11 @@ $(document).ready(function(){
         console.log('login closed');
         $('#background-modal').fadeOut();
     })
+
+    $('.register-modal').click(function(e) {
+        e.preventDefault();
+        console.log('register open');
+        $('#login-modal').hide();
+        $('#register-modal').show();
+    })
 })

@@ -1,5 +1,5 @@
 <div id="background-modal" style="display: none;">
-    <div id="block-modal">
+    <div id="login-modal" class="modal-holder">
         <div class="row">
             <div class="container-fluid">
                 <div class="col-12 border-bottom modal-header pt-5 pb-5">
@@ -9,7 +9,7 @@
                 <form>
                 <div class="col-12 mt-4 d-flex justify-content-center">
                     <div class="input-holder"> 
-                        <i class="fas fa-envelope p-2 font-13"></i> 
+                        <i class="fas fa-user p-2 font-13"></i>
                         <input type="text" id="username" class="input" placeholder="Your username"> 
                     </div>
                 </div>
@@ -26,8 +26,44 @@
                 </div>
                 </form>
                 <div class="col-12">
-                    <p class="text-center"><a href="">Dont have account? Register here.</a></p>
+                    <p class="text-center"><a class="register-modal" href="">Dont have account? Register here.</a></p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="register-modal" class="modal-holder" style="display: none;">
+        <div class="row">
+            <div class="container-fluid">
+                <div class="col-12 border-bottom modal-header pt-5 pb-5">
+                    <p class="font-weight-bold font-15 centered">Register</p>
+                    <a class="close-modal text-dark" href=""><i class="fas fa-times"></i></a>
+                </div>
+                <form>
+                <div class="col-12 mt-4 d-flex justify-content-center">
+                    <div class="input-holder"> 
+                        <i class="fas fa-user p-2 font-13"></i>
+                        <input type="text" id="usernameReg" class="input" placeholder="Your username"> 
+                    </div>
+                </div>
+                <div class="col-12 mt-4 d-flex justify-content-center">
+                    <div class="input-holder"> 
+                        <i class="fas fa-envelope p-2 font-13"></i> 
+                        <input type="text" id="emailReg" class="input" placeholder="Your email"> 
+                    </div>
+                </div>
+                <div class="col-12 mt-4 mb-4 d-flex justify-content-center">
+                    <div class="input-holder"> 
+                        <i class="fas fa-lock p-2 font-13"></i> 
+                        <input type="password" id="passwordReg" class="input" placeholder="Your password">
+                    </div>
+                </div>
+                <div class="col-12 mt-4 mb-4 border-top d-flex justify-content-center">
+                    <div class="input-holder pt-3 d-flex justify-content-center"> 
+                        <input type="button" id="regBtn" value="Register">
+                    </div>
+                </div>
+                </form>
             </div>
         </div>
     </div>
