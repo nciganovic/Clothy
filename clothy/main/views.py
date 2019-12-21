@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, redirect
 from .models import Product, Category
 from .forms import SignUpForm
@@ -38,6 +38,10 @@ def index(request):
             "sign_up": sing_up_form, 
         }
         return render(request, tmpl, context)
+
+def user(request):
+    tmpl = 'main/userinfo.html'
+    return render(request, tmpl)
 
 def category_slug(requset, category_slug):
     tmpl = "main/category.html"
@@ -98,3 +102,7 @@ def product_slug(request, category_slug, product_slug):
         return render(request, tmpl, context)
     else:
         return HttpResponse('<h1>Page was not found</h1>')
+
+def logout_request(request):
+    logout(request)
+    return redirect("index")
