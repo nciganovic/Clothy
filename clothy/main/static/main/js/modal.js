@@ -18,6 +18,16 @@ $(document).ready(function(){
         e.preventDefault();
         console.log('register open');
         $('#login-modal').hide();
-        $('#register-modal').show();
+        $('#register-modal').fadeIn();
     })
+
+    $('#id_username').attr('placeholder', 'Username');
+    $('#id_email').attr('placeholder', 'Email');
+    $('#id_password1').attr('placeholder', 'Password');
+    $('#id_password2').attr('placeholder', 'Password');
+
+    $('#id_username').addClass('input'); 
+    $('#id_email').addClass('input'); 
+    $('#id_password1').addClass('input'); 
+    $('#id_password2').addClass('input'); 
 })

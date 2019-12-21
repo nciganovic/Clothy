@@ -1,22 +1,43 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
+from django.contrib.auth import login, authenticate
+from django.shortcuts import render, redirect
 from .models import Product, Category
+from .forms import SignUpForm
 
 def index(request):
-    tmpl = "main/index.html"
-    featured_product = Product.objects.get(name="Classic man sweatshirt")
-    category = Category.objects.all()
-    man_category = Category.objects.get(category_name="Man")
-    woman_category = Category.objects.get(category_name="Woman")
-    kids_category = Category.objects.get(category_name="Kids")
-    context={
-        "product":featured_product,
-        "category": category,
-        "man_category":man_category,
-        "woman_category":woman_category,
-        "kids_category":kids_category,
-    }
-    return render(request, tmpl, context)
+    #sing up
+    if request.method == 'POST':
+        sing_up_form = SignUpForm(request.POST)
+        if sing_up_form.is_valid():
+            print('Form is valid')
+            sing_up_form.save()
+            username = sing_up_form.cleaned_data.get('username')
+            raw_password = sing_up_form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('index')
+        else:
+            print('Form is invalid')
+            return HttpResponse('<h1>Register form not valid</h1>')
+    else:       
+        sing_up_form = SignUpForm() 
+
+        tmpl = "main/index.html"
+        featured_product = Product.objects.get(name="Classic man sweatshirt")
+        category = Category.objects.all()
+        man_category = Category.objects.get(category_name="Man")
+        woman_category = Category.objects.get(category_name="Woman")
+        kids_category = Category.objects.get(category_name="Kids")
+        context={
+            "product":featured_product,
+            "category": category,
+            "man_category":man_category,
+            "woman_category":woman_category,
+            "kids_category":kids_category,
+            "sign_up": sing_up_form, 
+        }
+        return render(request, tmpl, context)
 
 def category_slug(requset, category_slug):
     tmpl = "main/category.html"
@@ -68,8 +89,6 @@ def product_slug(request, category_slug, product_slug):
         matching_category = Category.objects.filter(category_slug=category_slug)
         matching_product = Product.objects.filter(product_slug=product_slug) 
         similar_products = Product.objects.filter(category_name__category_slug=category_slug).exclude(product_slug=product_slug)[:4] #TODO change later to also filter for tags
-        for s in similar_products:
-            print('Product ->', s)
         context={
             "category":all_categories,
             "this_product": matching_product[0],
