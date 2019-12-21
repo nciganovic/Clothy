@@ -21,13 +21,15 @@ $(document).ready(function(){
         $('#register-modal').fadeIn();
     })
 
-    $('#id_username').attr('placeholder', 'Username');
+    $('[id="id_username"]').attr('placeholder', 'Username');
     $('#id_email').attr('placeholder', 'Email');
+    $('#id_password').attr('placeholder', 'Password');
     $('#id_password1').attr('placeholder', 'Password');
-    $('#id_password2').attr('placeholder', 'Password');
+    $('#id_password2').attr('placeholder', 'Repeat password');
 
-    $('#id_username').addClass('input'); 
+    $('[id="id_username"]').addClass('input'); 
     $('#id_email').addClass('input'); 
+    $('#id_password').addClass('input');
     $('#id_password1').addClass('input'); 
     $('#id_password2').addClass('input'); 
 })

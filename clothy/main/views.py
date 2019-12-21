@@ -3,25 +3,44 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, redirect
 from .models import Product, Category
-from .forms import SignUpForm
+from .forms import SignUpForm, myAuthenticationForm
 
 def index(request):
     #sing up
     if request.method == 'POST':
         sing_up_form = SignUpForm(request.POST)
-        if sing_up_form.is_valid():
-            print('Form is valid')
-            sing_up_form.save()
-            username = sing_up_form.cleaned_data.get('username')
-            raw_password = sing_up_form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('index')
-        else:
-            print('Form is invalid')
-            return HttpResponse('<h1>Register form not valid</h1>')
+        login_form = myAuthenticationForm(request, data=request.POST)
+        if request.POST.get('register') == 'register':
+            print('Register section')
+            if sing_up_form.is_valid():
+                print('Register form is valid')
+                sing_up_form.save()
+                username = sing_up_form.cleaned_data.get('username')
+                raw_password = sing_up_form.cleaned_data.get('password1')
+                user = authenticate(username=username, password=raw_password)
+                login(request, user)
+                return redirect('index')
+            else:
+                print('Form is invalid')
+                return HttpResponse('<h1>Register form not valid</h1>')
+        
+        #else:
+        elif request.POST.get('login') == 'login':
+            print('Login section')
+            if login_form.is_valid():
+                print('Login form is valid')
+                username = login_form.cleaned_data.get('username')
+                password = login_form.cleaned_data.get('password')
+                user = authenticate(username=username, password=password)
+                print('User :', user)
+                if user is not None:
+                    login(request, user)
+                    return redirect("index")
+            else:
+                return HttpResponse('<h1>Login not valid</h1>')
     else:       
         sing_up_form = SignUpForm() 
+        login_form = myAuthenticationForm()
 
         tmpl = "main/index.html"
         featured_product = Product.objects.get(name="Classic man sweatshirt")
@@ -36,6 +55,7 @@ def index(request):
             "woman_category":woman_category,
             "kids_category":kids_category,
             "sign_up": sing_up_form, 
+            "login": login_form,
         }
         return render(request, tmpl, context)
 

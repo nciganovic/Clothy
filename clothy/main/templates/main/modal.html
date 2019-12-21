@@ -6,24 +6,27 @@
                     <p class="font-weight-bold font-15 centered">Log in</p>
                     <a class="close-modal text-dark" href=""><i class="fas fa-times"></i></a>
                 </div>
-                <form>
-                <div class="col-12 mt-4 d-flex justify-content-center">
-                    <div class="input-holder"> 
-                        <i class="fas fa-user p-2 font-13"></i>
-                        <input type="text" id="username" class="input" placeholder="Your username"> 
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="col-12 mt-4 d-flex justify-content-center">
+                        <div class="input-holder"> 
+                            <i class="fas fa-user p-2 font-13"></i>
+                            {{ login.username }}
+                            <!--<input type="text" id="username" class="input" placeholder="Your username">--> 
+                        </div>
                     </div>
-                </div>
-                <div class="col-12 mt-4 mb-4 d-flex justify-content-center">
-                    <div class="input-holder"> 
-                        <i class="fas fa-lock p-2 font-13"></i> 
-                        <input type="password" id="password" class="input" placeholder="Your password">
+                    <div class="col-12 mt-4 mb-4 d-flex justify-content-center">
+                        <div class="input-holder"> 
+                            <i class="fas fa-lock p-2 font-13"></i> 
+                            {{ login.password }}
+                            <!--<input type="password" id="password" class="input" placeholder="Your password">-->
+                        </div>
                     </div>
-                </div>
-                <div class="col-12 mt-4 mb-4 border-top d-flex justify-content-center">
-                    <div class="input-holder pt-3 d-flex justify-content-center"> 
-                        <input type="button" id="loginBtn" value="Login">
+                    <div class="col-12 mt-4 mb-4 border-top d-flex justify-content-center">
+                        <div class="input-holder pt-3 d-flex justify-content-center"> 
+                            <button type="submit" id="loginBtn" name="login" value='login'>Login</button>
+                        </div>
                     </div>
-                </div>
                 </form>
                 <div class="col-12">
                     <p class="text-center"><a class="register-modal" href="">Dont have account? Register here.</a></p>
@@ -71,7 +74,7 @@
                     </div>
                     <div class="col-12 mt-4 mb-4 border-top d-flex justify-content-center">
                         <div class="input-holder pt-3 d-flex justify-content-center"> 
-                            <button type="submit" id="regBtn">Register</button>
+                            <button type="submit" id="regBtn" name="register" value='register'>Register</button>
                         </div>
                         {% for error in field.errors %}
                             <p style="color: red">{{ error }}</p>
