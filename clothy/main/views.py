@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Product, Category
 from .forms import SignUpForm, myAuthenticationForm
 
-def index(request):
+def user_reg(request):
     #sing up
     if request.method == 'POST':
         sing_up_form = SignUpForm(request.POST)
@@ -21,8 +22,7 @@ def index(request):
                 login(request, user)
                 return redirect('index')
             else:
-                print('Form is invalid')
-                return HttpResponse('<h1>Register form not valid</h1>')
+                messages.error(request, f"Register form is not valid!")
         
         #else:
         elif request.POST.get('login') == 'login':
@@ -37,36 +37,53 @@ def index(request):
                     login(request, user)
                     return redirect("index")
             else:
-                return HttpResponse('<h1>Login not valid</h1>')
+                print('Login error')
+                messages.error(request, f"Login form is not valid!")
     else:       
         sing_up_form = SignUpForm() 
         login_form = myAuthenticationForm()
 
-        tmpl = "main/index.html"
-        featured_product = Product.objects.get(name="Classic man sweatshirt")
-        category = Category.objects.all()
-        man_category = Category.objects.get(category_name="Man")
-        woman_category = Category.objects.get(category_name="Woman")
-        kids_category = Category.objects.get(category_name="Kids")
-        context={
-            "product":featured_product,
-            "category": category,
-            "man_category":man_category,
-            "woman_category":woman_category,
-            "kids_category":kids_category,
-            "sign_up": sing_up_form, 
-            "login": login_form,
+
+def index(request):
+    tmpl = "main/index.html"
+    featured_product = Product.objects.get(name="Classic man sweatshirt")
+    category = Category.objects.all()
+    man_category = Category.objects.get(category_name="Man")
+    woman_category = Category.objects.get(category_name="Woman")
+    kids_category = Category.objects.get(category_name="Kids")
+
+    sing_up_form = SignUpForm() 
+    login_form = myAuthenticationForm()
+    user_reg(request)
+
+    context={
+        "product":featured_product,
+        "category": category,
+        "man_category":man_category,
+        "woman_category":woman_category,
+        "kids_category":kids_category,
+        "sign_up": sing_up_form, 
+        "login": login_form,
         }
-        return render(request, tmpl, context)
+    return render(request, tmpl, context)
 
 def user(request):
     tmpl = 'main/userinfo.html'
-    return render(request, tmpl)
+    all_categories = Category.objects.all()
+    context={
+    "category": all_categories,
+    }
+    return render(request, tmpl, context)
 
-def category_slug(requset, category_slug):
+def category_slug(request, category_slug):
     tmpl = "main/category.html"
     all_categories = Category.objects.all()
     categories = [c.category_slug for c in all_categories]
+
+    sing_up_form = SignUpForm() 
+    login_form = myAuthenticationForm()
+    user_reg(request)
+
     if category_slug in categories:
         matching_category = Category.objects.filter(category_slug=category_slug)
         matching_products = Product.objects.filter(category_name__category_slug=category_slug)
@@ -98,15 +115,22 @@ def category_slug(requset, category_slug):
             "cover_image_id": cover_image_id,
             "this_tags":collection_of_tags,
             "mpft":matching_product_filterd_tags.values(),
+            "sign_up": sing_up_form, 
+            "login": login_form,
         }
         
-        return render(requset, tmpl, context)
+        return render(request, tmpl, context)
     else:
         return HttpResponse('<h1>Page was not found</h1>')
 
 def product_slug(request, category_slug, product_slug):
     tmpl = "main/product.html"
     all_categories = Category.objects.all()
+
+    sing_up_form = SignUpForm() 
+    login_form = myAuthenticationForm()
+    user_reg(request)
+
     #Test if product is in correct category, without this man products can be found in woman category if url is changed manually
     products = [p.product_slug for p in Product.objects.filter(category_name__category_slug=category_slug)]
     if product_slug in products:
@@ -118,6 +142,8 @@ def product_slug(request, category_slug, product_slug):
             "this_product": matching_product[0],
             "this_category": matching_category[0],
             "similar_products":similar_products,
+            "sign_up": sing_up_form, 
+            "login": login_form,
         }
         return render(request, tmpl, context)
     else:
