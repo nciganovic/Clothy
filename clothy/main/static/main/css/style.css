@@ -209,7 +209,7 @@ nav:hover{
     padding-right: 5%;
     font-size: 1.2rem;
 }
-#btn{
+#btnAddToCart{
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 5%;
@@ -220,7 +220,7 @@ nav:hover{
     color: white;
     border: 0px;
 }
-#btn:hover{
+#btnAddToCart:hover{
     background-color: rgb(104, 103, 103);
 }
 .color-gray{

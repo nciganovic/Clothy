@@ -24,7 +24,6 @@ def user_reg(request):
             else:
                 messages.error(request, f"Register form is not valid!")
         
-        #else:
         elif request.POST.get('login') == 'login':
             print('Login section')
             if login_form.is_valid():
