@@ -17,7 +17,7 @@
         <div class="col-xl-5 col-lg-12 mt-100px d-flex justify-content-center mt-0-lg">
             <div class="product-info w-75 mt-5 mt-0-lg">
                 <p class="mt-5 font-13 color-gray">{{ this_category }} / {{ this_product.tag_name }}</p>
-                <p class="font-15 font-11-sm">{{ this_product.name }} - ${{ this_product.price }}</p>
+                <p class="font-15 font-11-sm"><span id="prodName">{{ this_product.name }}</span> - $<span id="prodPrice">{{ this_product.price }}</span></p>
                 <p class="font-11 w-50 change-on-sm">{{ this_product.description }}</p>
                 <select id="size" data="{{ this_product.size }}">
                 </select><br><br>
