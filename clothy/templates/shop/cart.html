@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid nav-white mt-100px">
+        <div class="row">
+            <div class="col-12 mt-5">
+                <h2 class="text-center font-30">Cart</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-7">
+                <table class="w-100 font-11">
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'shop/js/cartTable.js' %}" type="text/javascript"></script>
+{% endblock %}

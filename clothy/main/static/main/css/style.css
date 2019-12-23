@@ -186,7 +186,7 @@ nav:hover{
 }
 /*product.html*/
 .mt-100px{
-    margin-top: 100px;
+    margin-top: 98px;
 }
 .pos-rel{
     position: relative;
@@ -277,4 +277,11 @@ nav:hover{
     position: absolute;
     top: 5px; 
     right: 5px;
+}
+/* cart.html */
+table tr th{
+    padding: 10px;
+}
+table tr td{
+    padding: 10px;
 }
