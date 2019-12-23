@@ -29,6 +29,7 @@ $(document).ready(function() {
             $(".navbar-brand").addClass('text-light');
             $(".navbar-brand").removeClass('text-dark');
             $(".navbar").removeClass('set-white-navbar');
+            $(".navbar").css('box-shadow', '');
         }
     }
 
@@ -38,6 +39,7 @@ $(document).ready(function() {
         $(".navbar-brand").addClass('text-dark');
         $(".navbar-brand").removeClass('text-light');
         $(".navbar").addClass('set-white-navbar');
+        $(".navbar").css('box-shadow', '0px 3px 5px 0px rgba(0,0,0,0.3)');
     }
 
     $(".navbar").on('mouseover', WhiteNavbarBlackText);
