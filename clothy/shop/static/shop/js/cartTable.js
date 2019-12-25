@@ -6,13 +6,12 @@ $(document).ready(function() {
     //populate table with values
     for(l of listOfAddedProducts){  
         $('table').append(`<tr>
-                           <td>x</td>
+                           <td><a class="cancelProduct text-dark" href="">x</a></td>
                            <td>${l.name}-${l.size}</td>
                            <td>${l.price}</td>
                            <td><input type="number" class="amountInCart" value="${l.amount}" min="1" max="20"></td>
                            <td>${l.price * l.amount}</td></tr>`);
     }
-
     
     $('.amountInCart').change(function() {
         //Update total price
@@ -38,5 +37,31 @@ $(document).ready(function() {
         var y = localStorage.getItem('productList');
         var z = JSON.parse(y);
         console.log(z);
+    })
+
+    //Delete product from list
+    $('.cancelProduct').click(function(e) {
+        e.preventDefault();
+        var product =  $(this).parent().next().text();
+        product = product.split('-');
+        
+        var productName = product[0];
+        var productSize = product[1];
+        
+        var elementCounter = 0; 
+        for(l of listOfAddedProducts){
+            if(l.name == productName && l.size == productSize){
+                listOfAddedProducts.splice(elementCounter, 1);
+                localStorage.setItem('productList', JSON.stringify(listOfAddedProducts))
+           
+                $(this).parent().parent().hide();
+
+                var y = localStorage.getItem('productList');
+                var z = JSON.parse(y);
+                console.log(z);
+            }
+            elementCounter++;
+        }
+
     })
 })
