@@ -9,7 +9,7 @@ $(document).ready(function() {
             listOfAddedProducts = JSON.parse(getListOfProducts);
             var totalPrice = 0;
             for(l of listOfAddedProducts){
-                totalPrice +=  Number(l.price);
+                totalPrice +=  Number(l.price) * Number(l.amount);
             }
             var twoDecPrice = totalPrice.toFixed(2);
             $('.totalPriceInCart').text(twoDecPrice);

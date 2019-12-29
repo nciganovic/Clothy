@@ -16,6 +16,9 @@
     .d-none-lg{
         display: none;
     }
+    .border-lg-0{
+        border: 0px !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -81,6 +84,9 @@
     .h2-holder h2{
         padding: 0px;
         font-size: 1.5rem;
+    }
+    .font-small-xs{
+        font-size: 0.7rem;
     }
 }
 
