@@ -151,11 +151,3 @@ def product_slug(request, category_slug, product_slug):
 def logout_request(request):
     logout(request)
     return redirect("index")
-
-def cart(request):
-    tmpl = "shop/cart.html"
-    all_categories = Category.objects.all()
-    context={
-    "category": all_categories,
-    }
-    return render(request, tmpl, context)

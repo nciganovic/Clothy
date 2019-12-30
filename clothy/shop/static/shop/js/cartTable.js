@@ -7,13 +7,14 @@ $(document).ready(function() {
     for(l of listOfAddedProducts){
         var price = Number(l.price);
         var amount = Number(l.amount);
-        var total = price.toFixed(2) * amount;
+        var total = price * amount;
+        var totalFixed = total.toFixed(2);
         $('table').append(`<tr>
                            <td><a class="cancelProduct text-dark font-small-xs" href="">x</a></td>
                            <td class="font-small-xs">${l.name}-${l.size}</td>
                            <td class="font-small-xs">${price.toFixed(2)}</td>
                            <td class="font-small-xs"><input type="number" class="amountInCart" value="${amount}" min="1" max="20"></td>
-                           <td class="font-small-xs">${total}</td></tr>`);
+                           <td class="font-small-xs">${totalFixed}</td></tr>`);
     }
     
 
@@ -41,12 +42,15 @@ $(document).ready(function() {
             shippingFee = 5;
             isChecked = true;
             UpdateCartNavbarAndSubtotal();
+            localStorage.setItem('shipping', 0); 
         }        
         else{
             shippingFee = 10;
             isChecked = true;
             UpdateCartNavbarAndSubtotal();
+            localStorage.setItem('shipping', 1);
         }
+        console.log(localStorage.getItem('shipping'));
     })
 
     UpdateCartNavbarAndSubtotal();
