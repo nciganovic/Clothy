@@ -49,6 +49,9 @@ nav:hover{
     color:white;
     transition: 0.2s ease-in-out;
 }
+.text-red{
+    color: red;
+}
 #fullscreen-navbar{
     display: none;
     position: absolute;
@@ -171,6 +174,12 @@ nav:hover{
 }
 .w-60{
     width: 60%;
+}
+.w-45{
+    width: 45% !important;
+}
+.w-90{
+    width: 90% !important;
 }
 .product-in-category{
     position: relative;
@@ -296,5 +305,24 @@ table tr td{
     border: 0px;
 }
 #cartChekoutBtn:hover{
+    background-color: rgb(104, 103, 103);
+}
+/* checkout.html */
+#card-element{
+    border-radius: 0px;
+    width: 90%;
+}
+#submit-payment{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 1.2rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 0px;
+    border-radius: 0px;
+}
+#submit-payment:hover{
     background-color: rgb(104, 103, 103);
 }

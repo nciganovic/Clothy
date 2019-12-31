@@ -7,14 +7,61 @@
                 <h2 class="text-center font-30">Checkout</h1>
             </div>
         </div>
+        {% if user.is_authenticated %}
+        {% else %}
+        <div class="row">
+            <div class="col-12 mt-5">
+                <p class="text-center">Returning customer? Login to get discount.</p>
+            </div>
+        </div>
+        {% endif %}
+        <div class="container">
+            <div class="row">
+                <div id="form-errors" class="col-12 mt-5">
+                    
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container">
         <div class="row mt-5">
-            <div class="col-xl-7 col-lg-12 col-">
+            <div class="col-xl-6 col-lg-12 col-">
+                <form action="../shop/charge" method="post" id="payment-form">
+                    {% csrf_token %}
+                    <input type="text" id="fn" name="first_name" placeholder="First name*" class="w-90 input font-13 pt-2 pb-2 mb-4">
+                    <input type="text" id="ln" name="last_name" placeholder="Last name*" class="w-90 input font-13 pt-2 pb-2 mt-4 mb-4">
+                    <input type="text" id="cn" name="company_name" placeholder="Company name " class="w-90 input font-13 pt-2 pb-2 mt-4 mb-4">
+                    
+                    <select id="countries" name="country" class="w-90 pt-3 pb-3 pl-2 font-13 mt-4 mb-4">
+                    <option value="0">Select country</option>
+                    {% for c in countries %}
+                    <option value="{{ c }}">{{ c }}</option>
+                    {% endfor %}
+                    </select>
+                    
+                    <input type="text" id="st" name="street_address" placeholder="Street address*" class="w-90 input font-13 pt-2 pb-2 mt-4 mb-4">
+                    <input type="text" id="an" name="apartment" placeholder="Apartment, suit, unit etc. (optional)" class="w-90 input font-13 pt-2 pb-2 mt-4 mb-4">
+                    <div class="w-90 d-flex justify-content-between">
+                    <input type="text" id="zip" name="postcode" placeholder="Postcode / ZIP* " class="w-45 input font-13 pt-2 pb-2 mt-4 mb-4">
+                    <input type="text" id="tw" name="town" placeholder="Town / City* " class="w-45 input font-13 pt-2 pb-2 mt-4 mb-4">
+                    </div>
+                    <input type="text" id="ph" name="phone" placeholder="Phone* " class="w-90 input font-13 pt-2 pb-2 mt-4 mb-4">
+                    <input type="text" id="em" name="email" placeholder="Email address* " class="w-90 input font-13 pt-2 pb-2 mt-4 mb-4">
+                    <textarea rows="6" id="on" name="other_notes" class="w-90 font-13 pt-2 pb-2 mt-4 mb-4 pl-3" placeholder="Order notes (Max 300 characters)"></textarea>
+
+                    <div class="form-group mt-3">
+                        <label for="card-element">Credit or debit card</label>
+                        <div id="card-element" class="form-control" style='height: 2.4em; padding-top: .7em;'>
+                        <!-- A Stripe Element will be inserted here. -->
+                        </div>
+                    </div>
+                    
+                    <button id="submit-payment" class="btn">Submit Payment</button>
                 
+                </form>
             </div>
             
-            <div class="col-xl-5 col-lg-12 border border-lg-0" style="min-height:40vh;">
+            <div class="col-xl-6 col-lg-12 border border-lg-0">
                 <div class="ml-3 mr-3 pt-5 pb-4 border-bottom d-flex justify-content-between">
                     <div><p class="font-weight-bold font-11">Product</p></div>
                     <div><p class="font-weight-bold font-11">Total</p></div>
@@ -37,13 +84,11 @@
                     <div><p class="font-weight-bold">Total:</p></div>
                     <div id="total">0</div>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <a class="mt-3 mb-3 text-decoration-none" id="cartChekoutBtn" href="checkout"></a>
-                </div>
 
             </div>
 
         </div>
     </div>
     <script src="{% static 'shop/js/checkout.js' %}"></script>
+    <script src="{% static 'shop/js/stripePay.js' %}"></script>
 {% endblock %}

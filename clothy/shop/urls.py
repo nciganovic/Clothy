@@ -6,6 +6,7 @@ from clothy import settings
 urlpatterns = [
     path('cart', views.cart, name="cart"),
     path('checkout', views.checkout, name="checkout"),
+    path('charge', views.charge, name="charge"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)
