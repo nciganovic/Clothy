@@ -21,6 +21,8 @@ class ChekoutHistory(models.Model):
     email = models.CharField(max_length=50)
     other_notes = models.TextField(max_length=300)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    product = models.TextField(max_length=10000)
+    shipping_type = models.CharField(max_length=50)
     customer = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
     def __str__(self):
         """When class Cagories is called, category_name will be displayed"""

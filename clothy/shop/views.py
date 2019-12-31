@@ -47,6 +47,8 @@ def charge(request):
         email = request.POST['email'],
         other_notes = request.POST['other_notes'],
         price = request.POST['price'],
+        product = request.POST['productList'],
+        shipping_type = request.POST['shippingType'],
         customer = user
     )
     ch.save()

@@ -1,6 +1,7 @@
 $(document).ready(function () {
     var getProductList = localStorage.getItem('productList');
     var productList = JSON.parse(getProductList);
+
     for(p of productList){
         var total = p.price * p.amount;
         var totalDec = total.toFixed(2);
@@ -34,6 +35,7 @@ $(document).ready(function () {
         shippingFee = 10;
     }
 
+    //Change shipping fee and update total price
     $('.sp').click(function () {
         if($(this).val() == 0){
             shippingFee = 5; 
@@ -54,9 +56,32 @@ $(document).ready(function () {
     var totalPriceDec = totalPrice.toFixed(2);
     $('#total').text(totalPriceDec);
 
+    function addHiddenFormElements(){
+        var form = document.getElementById('payment-form');
+
+        var hiddenProductList = document.createElement('input');
+        hiddenProductList.setAttribute('type', 'hidden');
+        hiddenProductList.setAttribute('name', 'productList');
+        hiddenProductList.setAttribute('value', getProductList);
+        form.appendChild(hiddenProductList);
+
+        var hiddenShippingType = document.createElement('input');
+        hiddenShippingType.setAttribute('type', 'hidden');
+        hiddenShippingType.setAttribute('name', 'shippingType');
+        if($('#sp0').prop('checked')){
+            hiddenShippingType.setAttribute('value', 'Shipping type 1');
+        }
+        else{
+            hiddenShippingType.setAttribute('value', 'Shipping type 2');
+        }
+        form.appendChild(hiddenShippingType);
+    }
+
     //check if form is valid on click
     var totalErrors = [];
     $('#submit-payment').click(function () {
+        addHiddenFormElements();
+
         totalErrors = [];
 
         //First name test
