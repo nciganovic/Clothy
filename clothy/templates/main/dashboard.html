@@ -1,0 +1,9 @@
+{% extends "main/userinfo.html" %}
+{% load static %}
+{% block innerContent %}
+    <p class="text-center font-13 mt-5">Hello {{user.username}} (not {{user.username}}? <a class="text-dark" href="logout">Logout</a>)
+    <div class="w-100 d-flex mt-5">
+        <p class="text-center font-13 mt-5 w-25 m-auto">From your account dashboard you can see your current orders, your prevoius orders and your account details.</p>
+    </div>
+{% endblock %}
+

@@ -1,13 +1,26 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% block content %}
-    <div class="container-fluid mt-100px">
+    <div class="container-fluid nav-white mt-100px">
         <div class="row">
             <div class="col-12">
-                <a href="logout">Logout</a> 
+                <h1 class="text-center font-30 mt-3">My account</h1>
+            </div>
+            <div class="col-12 pos-rel">
+                 <!--Load from base-->
+                {% block innerContent %}
+                {% endblock %}
+            </div>
+            <div id="user-menu" class="border">
+                <ul class="ls-none font-15">
+                    <li class="m-3 mt-5"><a class="text-dark" href="">Dashboard</a></li>
+                    <li class="m-3"><a class="text-dark" href="">Curent orders</a></li>
+                    <li class="m-3"><a class="text-dark" href="">Order history</a></li>
+                    <li class="m-3"><a class="text-dark" href="">My info</a></li>
+                    <li class="m-3 mb-5"><a class="text-dark" href="logout">Logout</a></li>
+                </ul>
             </div>
         </div>
-    </div>
-
+    </div> 
     <script type="text/javascript" src="{% static 'main/js/category.js' %}"></script> 
 {% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -24,6 +25,8 @@ class ChekoutHistory(models.Model):
     product = models.TextField(max_length=10000)
     shipping_type = models.CharField(max_length=50)
     customer = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+    date = models.DateTimeField('date published', default=timezone.now)
+    is_delivered = models.BooleanField(default=False)
     def __str__(self):
         """When class Cagories is called, category_name will be displayed"""
         return f'{self.first_name} {self.last_name}'

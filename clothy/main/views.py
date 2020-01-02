@@ -67,10 +67,12 @@ def index(request):
     return render(request, tmpl, context)
 
 def user(request):
-    tmpl = 'main/userinfo.html'
+    tmpl = 'main/dashboard.html'
     all_categories = Category.objects.all()
+    user = request.user
     context={
     "category": all_categories,
+    "user":user,
     }
     return render(request, tmpl, context)
 

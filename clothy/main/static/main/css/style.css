@@ -326,3 +326,9 @@ table tr td{
 #submit-payment:hover{
     background-color: rgb(104, 103, 103);
 }
+/* userinfo.html */
+#user-menu{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
