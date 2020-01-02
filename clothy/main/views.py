@@ -66,16 +66,6 @@ def index(request):
         }
     return render(request, tmpl, context)
 
-def user(request):
-    tmpl = 'main/dashboard.html'
-    all_categories = Category.objects.all()
-    user = request.user
-    context={
-    "category": all_categories,
-    "user":user,
-    }
-    return render(request, tmpl, context)
-
 def category_slug(request, category_slug):
     tmpl = "main/category.html"
     all_categories = Category.objects.all()

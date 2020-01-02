@@ -1,0 +1,12 @@
+{% extends "user/userinfo.html" %}
+{% load static %}
+{% block innerContent %}
+    <h2 class="text-center font-17 mt-5">Current order</h2>
+    <div id="insertProducts">
+        {% for x in all_current_orders %}
+            <p class="product-details d-none">{{ x.product }}</p>
+            <p class="d-none">{{ x.date }}</p>
+        {% endfor %}
+    </div>
+    <script src="{% static 'user/js/parseProduct.js' %}" type="text/javascript"></script>
+{% endblock %}

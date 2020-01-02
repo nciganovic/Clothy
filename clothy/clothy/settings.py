@@ -133,6 +133,7 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'main/static/'),
     os.path.join(BASE_DIR, 'shop/static/'),
+    os.path.join(BASE_DIR, 'user/static/'),
 ]
 
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
