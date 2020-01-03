@@ -181,6 +181,9 @@ nav:hover{
 .w-90{
     width: 90% !important;
 }
+.w-33{
+    width: 33% !important;
+}
 .product-in-category{
     position: relative;
 }

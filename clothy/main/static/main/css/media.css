@@ -2,6 +2,9 @@
     .d-none-xl{
         display: none;
     }
+    .w-33{
+        width: 50% !important;
+    }
 }
 
 @media (max-width: 992px) {
@@ -25,6 +28,9 @@
         display: block;
     }
     .w-100-lg{
+        width: 100% !important;
+    }
+    .w-33{
         width: 100% !important;
     }
 }
