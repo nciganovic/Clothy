@@ -48,6 +48,12 @@
     .margin-zero-xs{
         margin-left: 0px !important;
     }
+    #search-bar{
+        font-size: 1.7rem;
+    }
+    .fa-search{
+        font-size: 1.7rem;
+    }
 
 }
 
@@ -95,6 +101,12 @@
     }
     .font-small-xs{
         font-size: 0.7rem;
+    }
+    #search-bar{
+        font-size: 1.2rem;
+    }
+    .fa-search{
+        font-size: 1.2rem;
     }
 }
 

@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.db.models import Q
 from .models import Product, Category
 from .forms import SignUpForm, myAuthenticationForm
 
@@ -143,3 +144,30 @@ def product_slug(request, category_slug, product_slug):
 def logout_request(request):
     logout(request)
     return redirect("index")
+
+def search(request):
+    tmpl = "main/search.html"
+    all_categories = Category.objects.all()
+    products = Product.objects.all()
+    sing_up_form = SignUpForm() 
+    login_form = myAuthenticationForm()
+    user_reg(request)
+    is_search = False
+
+    query = request.GET.get('search')
+    if query:
+        is_search = True
+        products = products.filter(
+            Q(name__icontains=query) |
+            Q(description__icontains=query) 
+        ).distinct()
+    context={
+        "category": all_categories,
+        "sign_up": sing_up_form, 
+        "login": login_form,
+        "query": query,
+        "products":products,
+        "is_search": is_search
+        }
+    return render(request, tmpl, context)
+    

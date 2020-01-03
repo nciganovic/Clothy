@@ -335,3 +335,8 @@ table tr td{
 .d-none-xl{
     display: none;
 }
+/* search.html */
+#search-button{
+    background-color: transparent;
+    border: 0px;
+}
