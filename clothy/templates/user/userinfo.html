@@ -6,12 +6,21 @@
             <div class="col-12">
                 <h1 class="text-center font-30 mt-3">My account</h1>
             </div>
+            <div class="col-12 border d-none-xl">
+                <ul class="ls-none font-15">
+                    <li class="m-3 mt-5"><a class="text-dark" href="dashboard">Dashboard</a></li>
+                    <li class="m-3"><a class="text-dark" href="currentorders">Current orders</a></li>
+                    <li class="m-3"><a class="text-dark" href="orderhistory">Order history</a></li>
+                    <li class="m-3"><a class="text-dark" href="myinfo">My info</a></li>
+                    <li class="m-3 mb-5"><a class="text-dark" href="../logout">Logout</a></li>
+                </ul>
+            </div>
             <div class="col-12 pos-rel">
                  <!--Load from base-->
                 {% block innerContent %}
                 {% endblock %}
             </div>
-            <div id="user-menu" class="border">
+            <div id="user-menu" class="border d-none-lg">
                 <ul class="ls-none font-15">
                     <li class="m-3 mt-5"><a class="text-dark" href="dashboard">Dashboard</a></li>
                     <li class="m-3"><a class="text-dark" href="currentorders">Current orders</a></li>

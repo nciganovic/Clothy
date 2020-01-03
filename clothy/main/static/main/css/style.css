@@ -332,3 +332,6 @@ table tr td{
     top: 30px;
     left: 30px;
 }
+.d-none-xl{
+    display: none;
+}

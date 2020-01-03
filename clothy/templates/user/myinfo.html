@@ -2,4 +2,34 @@
 {% load static %}
 {% block innerContent %}
     <h2 class="text-center font-17 mt-5">My info</h2>
+    <div class="col-12 d-flex justify-content-center">
+        <div class="w-50 w-100-lg">
+            <form method="post">
+                {% csrf_token %}
+                <div class="col-12 mt-4 d-flex justify-content-center">
+                    <i class="fas fa-user p-2 font-13"></i>
+                    {{ form.username }}
+                    
+                </div>
+                <div class="col-12 mt-4 d-flex justify-content-center">
+                    <i class="fas fa-envelope p-2 font-13"></i>
+                    {{ form.email }}
+                </div>
+                <div class="col-12 mt-4 d-flex justify-content-center">
+                    <i class="fas fa-lock p-2 font-13"></i>
+                    {{ form.password1 }}
+                </div>
+            
+                <div class="col-12 mt-4 d-flex justify-content-center">
+                    <i class="fas fa-lock p-2 font-13"></i>
+                    {{ form.password2 }}
+                </div>
+                <div class="col-12 mt-4 mb-4 d-flex justify-content-center">
+                    <div class="input-holder pt-3 d-flex justify-content-center"> 
+                        <button type="submit" id="regBtn" name="register" value='register'>Change info</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

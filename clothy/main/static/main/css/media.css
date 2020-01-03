@@ -1,5 +1,7 @@
 @media (max-width: 1200px) {
-
+    .d-none-xl{
+        display: none;
+    }
 }
 
 @media (max-width: 992px) {
@@ -18,6 +20,12 @@
     }
     .border-lg-0{
         border: 0px !important;
+    }
+    .d-none-xl{
+        display: block;
+    }
+    .w-100-lg{
+        width: 100% !important;
     }
 }
 
