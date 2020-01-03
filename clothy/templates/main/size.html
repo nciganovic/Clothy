@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid nav-white mt-100px">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mt-3 font-30">Size guide</h1>
+                <div class="d-flex">
+                    <div class="custom-container w-33">
+                        <p class="text-center font-13 mt-5">Below you can find our general size guide. For item specific measurements, please contact our customer service team at store@clothyy.com</p>
+                        <h3 class="font-weight-bold font-17 mt-5">Size guide - man</h3>
+                        <p class="font-13">All measurements are in cm.</p>
+                        <div>
+                        <img class="w-100" src="{% static 'main/img/man-size.jpeg' %}" alt="size-man">
+                        </div>
+                        <h3 class="font-weight-bold font-17 mt-4">Size guide - woman</h3>
+                        <p class="font-13">All measurements are in cm.</p>
+                        <div>
+                        <img class="w-100" src="{% static 'main/img/woman-size.jpeg' %}" alt="size-woman">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

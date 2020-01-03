@@ -183,3 +183,16 @@ def faq(request):
         "login": login_form,
         }
     return render(request, tmpl, context)
+
+def size(request):
+    tmpl = "main/size.html"
+    all_categories = Category.objects.all()
+    sing_up_form = SignUpForm() 
+    login_form = myAuthenticationForm()
+    user_reg(request)
+    context={
+        "category": all_categories,
+        "sign_up": sing_up_form, 
+        "login": login_form,
+        }
+    return render(request, tmpl, context)
