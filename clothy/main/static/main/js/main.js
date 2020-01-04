@@ -45,6 +45,20 @@ $(document).ready(function() {
     $(".navbar").on('mouseover', WhiteNavbarBlackText);
     $(".navbar").on('mouseout', TransparentNavbarWhiteText);
 
+    
+    /* Test email field in footer */
+    $('#submitEmailBtn').click(function() {
+        var isEmailValid = false;
+        var rgxEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        isEmailValid = rgxEmail.test($('#sendEmail').val())
+        if(!isEmailValid){
+            $('#sendEmail').css('border', '1px solid red');
+            return false;
+        } 
+        $('#sendEmail').css('border', '1px solid #ced4da');
+        return true;
+    })
+
 });
 
 
@@ -70,5 +84,6 @@ function setNavbar(){
     }
 }
 /* END Mobile Navbar */
+
 
 

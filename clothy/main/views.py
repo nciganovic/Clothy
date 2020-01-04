@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.db.models import Q
+from django.core.mail import send_mail
 from .models import Product, Category
 from .forms import SignUpForm, myAuthenticationForm
 
@@ -39,6 +40,18 @@ def user_reg(request):
             else:
                 print('Login error')
                 messages.error(request, f"Login form is not valid!")
+        elif request.POST.get('email') == 'email':
+            print('trying to send email')
+            send_to = request.POST['send-to']
+            print(send_to)
+            #try:
+            send_mail(  "Clothyy.com", 
+                            "Thank you for subscribing", 
+                            "nciganovic52@gmail.com",
+                            [f'{send_to}'], 
+                            fail_silently=False)
+            #except:
+                #messages.error(request, "Failed to send email.")
     else:       
         sing_up_form = SignUpForm() 
         login_form = myAuthenticationForm()
