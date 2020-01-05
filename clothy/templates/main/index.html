@@ -22,7 +22,7 @@
                 <p class="centered text-light font-17"><a class="text-light" href="{{ man_category.category_slug }}">Shop man</a><p>
             </div>
             <div class="mt-5 ml-3 img-holder p-0 w47-l-w100-m align-on-small mt-0-small">
-                <img class="w-100 zoom-out" src="{% static 'main/img/woman-dark.jpg' %}" alt="Woman" style="display:block;">
+                <img class="w-100 zoom-out d-block" src="{% static 'main/img/woman-dark.jpg' %}" alt="Woman">
                 <p class="centered text-light font-17"><a class="text-light" href="{{ woman_category.category_slug }}">Shop woman</a><p>
             </div>
         </div>
@@ -32,10 +32,10 @@
             <div class="col-12 mt-5 pl-0"><h2 class="font-20 font-weight-bold featured-h2">Featured this month</h2></div>
             <div class="bg-gray col-lg-7 col-md-12 d-flex align-items-center flex-column">
                 <h3 class=" mt-5 mb-5 w-100 text-right font-11"><span class="font-weight-bold">{{ product.name }} </span><span>${{ product.price }}</span></h3>  
-                <img style="width: 40%; margin-top: 10%; margin-bottom: 18%; opacity: 0;" src="{% static 'main/img/pullover-index.png' %}">            
-                <img id="po1" class="product-image centered" style="width: 40%;" src="{{ product.image_1.url }}"> 
-                <img id="po2" class="product-image centered" style="width: 40%;" src="{{ product.image_2.url }}"> 
-                <img id="po3" class="product-image centered" style="width: 40%;" src="{{ product.image_3.url }}"> 
+                <img id="featured-product-image" src="{% static 'main/img/pullover-index.png' %}">            
+                <img class="product-image centered w-40" src="{{ product.image_1.url }}"> 
+                <img class="product-image centered w-40" src="{{ product.image_2.url }}"> 
+                <img class="product-image centered w-40" src="{{ product.image_3.url }}"> 
                 <a id="left-arrow" href="#"><i class="far fa-arrow-alt-circle-left font-17 text-dark"></i></a>
                 <a id="right-arrow" href="#"><i class="far fa-arrow-alt-circle-right font-17 text-dark"></i></a>
             </div>
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="img-holder border mt-5 ml-3 margin-zero-xs">
-                <img class="w-100 zoom-out" src="{% static 'main/img/kids-dark.jpg' %}" alt="Woman" style="display:block;">
+                <img class="w-100 zoom-out d-block" src="{% static 'main/img/kids-dark.jpg' %}" alt="Kids">
                 <p class="centered text-light font-17"><a class="text-light" href="{{ kids_category.category_slug }}">Shop kids</a><p>
             </div>
         </div>

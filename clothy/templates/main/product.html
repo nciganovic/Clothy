@@ -3,10 +3,10 @@
 {% block content %}
 <div class="container-fluid nav-white pl-0 pr-0">
     <div class="row ml-0 mr-0">
-        <div class="col-xl-7 col-lg-12 bg-gray mt-100px d-flex" style="overflow:hidden;">
+        <div class="col-xl-7 col-lg-12 bg-gray mt-100px d-flex overflow-hidden">
             <p class="pos-abs-top-left left-10 mt-5 d-none-lg"><a class="text-dark" href="../{{ this_category.category_slug }}"><i class="fas fa-arrow-left"></i> Back to products</a></p>
             
-            <img class="pos-rel w-60 pos-rel m-auto" style="padding-top: 10%; padding-bottom: 10%; opacity: 0;" src="{{ this_product.image_1.url }}">
+            <img id="product-img" class="pos-rel w-60 pos-rel m-auto" src="{{ this_product.image_1.url }}">
             <img class="w-60 centered product-image" src="{{ this_product.image_1.url }}" alt="{{ this_product.name }}">
             <img class="w-60 centered product-image" src="{{ this_product.image_2.url }}" alt="{{ this_product.name }}">
             <img class="w-60 centered product-image" src="{{ this_product.image_3.url }}" alt="{{ this_product.name }}">
@@ -22,7 +22,7 @@
                 <select id="size" data="{{ this_product.size }}">
                 </select><br><br>
                 <input type="button" id="btnAddToCart" value="Add to cart">
-                <p class="mt-4"><a class="text-dark del-and-ret" href="#">Delivery and returns <i style="font-size: 0.7rem;" class="plus-sign fas fa-plus"></i></a></p>
+                <p class="mt-4"><a class="text-dark del-and-ret" href="#">Delivery and returns <i class="plus-sign fas fa-plus font-08"></i></a></p>
                 <p class="font-08 w-60 shipping">We ship worldwide. Always free returns. Free shipping on international orders over 200€. 30 days return and exchange period. For orders outside the EU, Finnish VAT (24%) will be deducted from order total at checkout.</p>
             </div>
         </div>

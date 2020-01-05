@@ -1,4 +1,4 @@
-<div id="background-modal" style="display: none;">
+<div id="background-modal" class="display-none">
     <div id="login-modal" class="modal-holder">
         <div class="row">
             <div class="container-fluid">
@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <div id="register-modal" class="modal-holder" style="display: none;">
+    <div id="register-modal" class="modal-holder display-none">
         <div class="row">
             <div class="container-fluid">
                 <div class="col-12 border-bottom modal-header pt-5 pb-5">
@@ -76,9 +76,6 @@
                         <div class="input-holder pt-3 d-flex justify-content-center"> 
                             <button type="submit" id="regBtn" name="register" value='register'>Register</button>
                         </div>
-                        {% for error in sign_up.errors %}
-                            <p style="color: red">{{ error }}</p>
-                        {% endfor %}
                     </div>
                 </form>
             </div>

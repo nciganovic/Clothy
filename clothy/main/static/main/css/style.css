@@ -31,12 +31,10 @@ body{
 .font-spec{
     font-family: 'Courgette', cursive;
 }
-/*
-nav:hover{
-    background-color: white;
-    transition: 0.2s ease-in-out;
+.mh-55vh{
+    max-height: 55vh;
 }
-*/
+
 .set-white-navbar{
     background-color: white;
     transition: 0.2s ease-in-out;
@@ -86,6 +84,20 @@ nav:hover{
 .navbar-toggler:focus {
     outline: none;
 }
+#message-block{
+    height: 30px; 
+    position:fixed; 
+    bottom: 0px; left: 0px; 
+    background-color: black; 
+    color: white; 
+    z-index: 9999;
+}
+.display-none{
+    display: none;
+}
+.border-0{
+    border: 0px;
+}
 /* index.html */
 #bg-img-main{
     background-image: url('../../main/img/bg-img.jpg');
@@ -128,12 +140,12 @@ nav:hover{
     transition: all .3s linear;
     position: relative;
 }
-/*
-.img-holder:hover img{
-    transform: scale(1.2);
-    transition: all .5s linear;
+#featured-product-image{
+    width: 40%; 
+    margin-top: 10%; 
+    margin-bottom: 18%; 
+    opacity: 0;
 }
-*/
 .zoom-in{
     transform: scale(1.2);
     transition: all .5s linear;
@@ -180,6 +192,9 @@ nav:hover{
 }
 .w-45{
     width: 45% !important;
+}
+.w-40{
+    width: 40% !important;
 }
 .w-90{
     width: 90% !important;
@@ -241,6 +256,12 @@ nav:hover{
 .color-gray{
     color: gray;
 }
+#product-img{
+    padding-top: 10%; 
+    padding-bottom: 10%; 
+    opacity: 0;
+}
+
 /* modal.html */
 #background-modal{
     width: 100%; 
@@ -331,6 +352,10 @@ table tr td{
 }
 #submit-payment:hover{
     background-color: rgb(104, 103, 103);
+}
+#card-element{
+    height: 2.4em; 
+    padding-top: .7em;
 }
 /* userinfo.html */
 #user-menu{
