@@ -5,6 +5,12 @@
     .w-33{
         width: 50% !important;
     }
+    .pb-600{
+        padding-bottom: 350px !important;
+    }
+    .mr-3-small{
+        margin-right: 16px !important;
+    }
 }
 
 @media (max-width: 992px) {
@@ -60,6 +66,9 @@
     .fa-search{
         font-size: 1.7rem;
     }
+    .pb-600{
+        padding-bottom: 600px !important;
+    }
 
 }
 
@@ -113,6 +122,12 @@
     }
     .fa-search{
         font-size: 1.2rem;
+    }
+    .modal-holder{
+        width: 300px;
+    }
+    #btnAddToCart{
+        font-size: 0.8rem;
     }
 }
 

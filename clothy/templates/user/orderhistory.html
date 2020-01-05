@@ -1,7 +1,7 @@
 {% extends "user/userinfo.html" %}
 {% load static %}
 {% block innerContent %}
-    <h2 class="text-center font-17 mt-5">Current order</h2>
+    <h2 class="text-center font-17 mt-5">Order history</h2>
     <div id="insertProducts">
         {% for x in all_order_history %}
             <p class="product-details d-none">{{ x.product }}</p>

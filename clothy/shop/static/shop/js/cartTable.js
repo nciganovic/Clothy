@@ -113,8 +113,20 @@ $(document).ready(function() {
 
     })
 
-
-
-    //Total value
+    $('#cartChekoutBtn').click(function(){
+        var y = localStorage.getItem('productList');
+        var z = JSON.parse(y);
+        if(z.length == 0){
+            $('#cartMsg').text('Your cart is empty, go to store and select product you want to buy.');
+        }
+        if(!isChecked){
+            $('#cartMsg').append('Please select shipping type.');
+        }
+        if(z.length == 0 || !isChecked){
+            return false;
+        }
+        $('#cartMsg').text('');
+        return true;
+    })
 
 })

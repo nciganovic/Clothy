@@ -76,7 +76,7 @@
                         <div class="input-holder pt-3 d-flex justify-content-center"> 
                             <button type="submit" id="regBtn" name="register" value='register'>Register</button>
                         </div>
-                        {% for error in field.errors %}
+                        {% for error in sign_up.errors %}
                             <p style="color: red">{{ error }}</p>
                         {% endfor %}
                     </div>

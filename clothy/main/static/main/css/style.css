@@ -81,7 +81,10 @@ nav:hover{
     height: 100vh;
 }
 .pb-600{
-    padding-bottom: 600px;
+    padding-bottom: 250px;
+}
+.navbar-toggler:focus {
+    outline: none;
 }
 /* index.html */
 #bg-img-main{
@@ -113,7 +116,7 @@ nav:hover{
     transform: translate(-50%, -50%);
 }
 .opacity-6{
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .img-holder img{

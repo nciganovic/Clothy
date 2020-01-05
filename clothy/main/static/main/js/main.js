@@ -73,13 +73,14 @@ var isFullScreen = false;
 
 function setNavbar(){
     console.log('navbar button clicked.')
-    var fullScreenNavbar = document.getElementById('fullscreen-navbar');
+    //var fullScreenNavbar = document.getElementById('fullscreen-navbar');
     if(!isFullScreen){
-        fullScreenNavbar.style.display = 'block';
+        //fullScreenNavbar.style.display = 'block';
+        $('#fullscreen-navbar').fadeIn()
         isFullScreen = true;
     }
     else{
-        fullScreenNavbar.style.display = 'none';
+        $('#fullscreen-navbar').fadeOut()
         isFullScreen = false;
     }
 }
