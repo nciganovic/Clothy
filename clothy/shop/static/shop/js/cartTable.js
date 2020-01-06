@@ -1,27 +1,28 @@
 $(document).ready(function() {
     
     var getProductList = localStorage.getItem('productList');
-    var listOfAddedProducts = JSON.parse(getProductList);
-
-    //populate table with values
-    for(l of listOfAddedProducts){
-        var price = Number(l.price);
-        var amount = Number(l.amount);
-        var total = price * amount;
-        var totalFixed = total.toFixed(2);
-        $('table').append(`<tr>
-                           <td><a class="cancelProduct text-dark font-small-xs" href="">x</a></td>
-                           <td class="font-small-xs">${l.name}-${l.size}</td>
-                           <td class="font-small-xs">${price.toFixed(2)}</td>
-                           <td class="font-small-xs"><input type="number" class="amountInCart" value="${amount}" min="1" max="20"></td>
-                           <td class="font-small-xs">${totalFixed}</td></tr>`);
+    if(getProductList){
+        var listOfAddedProducts = JSON.parse(getProductList);
+        console.log(listOfAddedProducts)
+        //populate table with values
+        for(l of listOfAddedProducts){
+            var price = Number(l.price);
+            var amount = Number(l.amount);
+            var total = price * amount;
+            var totalFixed = total.toFixed(2);
+            $('table').append(`<tr>
+                            <td><a class="cancelProduct text-dark font-small-xs" href="">x</a></td>
+                            <td class="font-small-xs">${l.name}-${l.size}</td>
+                            <td class="font-small-xs">${price.toFixed(2)}</td>
+                            <td class="font-small-xs"><input type="number" class="amountInCart" value="${amount}" min="1" max="20"></td>
+                            <td class="font-small-xs">${totalFixed}</td></tr>`);
+        }
     }
-    
 
     //Update navbar and sutotal id
     function UpdateCartNavbarAndSubtotal(){
         var getListOfProducts = localStorage.getItem('productList');
-        if(getListOfProducts != null){
+        if(getListOfProducts){
             listOfAddedProducts = JSON.parse(getListOfProducts);
             var totalPrice = 0;
             for(l of listOfAddedProducts){
@@ -115,17 +116,16 @@ $(document).ready(function() {
 
     $('#cartChekoutBtn').click(function(){
         var y = localStorage.getItem('productList');
-        var z = JSON.parse(y);
-        if(z.length == 0){
-            $('#cartMsg').text('Your cart is empty, go to store and select product you want to buy.');
-        }
-        if(!isChecked){
-            $('#cartMsg').append('Please select shipping type.');
-        }
-        if(z.length == 0 || !isChecked){
+        if(!y || !isChecked){
+            if(!isChecked){
+                $('#cartMsg').text('Please select shipping type.');
+            }
+            if(!y){
+                $('#cartMsg').text('Please select some product. Your cart is empty.');
+            }
+
             return false;
         }
-        $('#cartMsg').text('');
         return true;
     })
 

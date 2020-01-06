@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
-    listOfAddedProducts = [];
-    //localStorage.removeItem('productList');
+    var listOfAddedProducts = [];
     
     function UpdateCartInNavbar(){
         var getListOfProducts = localStorage.getItem('productList');
-        if(getListOfProducts != null){
+        if(getListOfProducts){
+            console.log(getListOfProducts);
             listOfAddedProducts = JSON.parse(getListOfProducts);
             var totalPrice = 0;
             for(l of listOfAddedProducts){
@@ -37,7 +37,7 @@ $(document).ready(function() {
             } 
             if(!isAlreadyAdded){
                 var lsProductList = localStorage.getItem('productList');
-                if(lsProductList == null){
+                if(!lsProductList){
                     listOfAddedProducts.push(productInfo);
                     localStorage.setItem('productList', JSON.stringify(listOfAddedProducts));
                 
