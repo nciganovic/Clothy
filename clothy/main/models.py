@@ -17,6 +17,8 @@ class Category(models.Model):
     def __str__(self):
         """When class Cagories is called, category_name will be displayed"""
         return self.category_name
+    def get_absolute_url(self):
+        return f'/{self.category_slug}'
 
 class Tag(models.Model):
     name = models.CharField(max_length=100)
@@ -43,3 +45,5 @@ class Product(models.Model):
     def __str__(self):
         """When class Cagories is called, category_name will be displayed"""
         return self.name
+    def get_absolute_url(self):
+        return f'/{self.product_slug}'

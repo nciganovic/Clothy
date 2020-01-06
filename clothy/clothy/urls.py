@@ -14,10 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
+from main.sitemaps import StaticViewSitemap, IndexSitemap, CategorySitemap, ProductSitemap
 
-#TODO make another path to shop/
+sitemaps = {
+    'index': IndexSitemap,
+    'static': StaticViewSitemap,
+    'blog': ProductSitemap,
+    'category': CategorySitemap,
+}
+
 urlpatterns = [
+    path('sitemap.xml', sitemap, {'sitemaps':sitemaps}),
     path('admin/', admin.site.urls),
     path('shop/', include('shop.urls')),
     path('user/', include('user.urls')),
