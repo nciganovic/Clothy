@@ -11,6 +11,12 @@
     .mr-3-small{
         margin-right: 16px !important;
     }
+    .w-90{
+        width: 100% !important;
+    }
+    .w-45{
+        width: 50% !important;
+    }
 }
 
 @media (max-width: 992px) {

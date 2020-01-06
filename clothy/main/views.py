@@ -65,6 +65,13 @@ def index(request):
     woman_category = Category.objects.get(category_name="Woman")
     kids_category = Category.objects.get(category_name="Kids")
 
+    seo = {
+        "title":"Welcome to Clothyy",
+        "desc":"Welcome to Clothyy best website for buying clothes for man woman and kids.",
+        "keywords":"shop, ecommerce, clothes"
+    }
+    
+
     sing_up_form = SignUpForm() 
     login_form = myAuthenticationForm()
     user_reg(request)
@@ -77,7 +84,9 @@ def index(request):
         "kids_category":kids_category,
         "sign_up": sing_up_form, 
         "login": login_form,
+        "seo": seo
         }
+
     return render(request, tmpl, context)
 
 def category_slug(request, category_slug):
@@ -113,6 +122,12 @@ def category_slug(request, category_slug):
         elif str(matching_category[0]) == 'Kids':
             cover_image_id = 'bg-img-kids'
 
+        seo = {
+            "title":f"Clothyy {matching_category[0]}",
+            "desc": f"Welcome to Clothyy best website for buying clothes for man woman and kids. Take a look at what we have in {matching_category[0]} category.",
+            "keywords": f"shop, ecommerce, clothes, {matching_category[0]}"
+        }
+
         context={
             "this_category": matching_category[0],
             "this_products": matching_products,
@@ -122,6 +137,7 @@ def category_slug(request, category_slug):
             "mpft":matching_product_filterd_tags.values(),
             "sign_up": sing_up_form, 
             "login": login_form,
+            "seo": seo
         }
         
         return render(request, tmpl, context)
@@ -142,6 +158,13 @@ def product_slug(request, category_slug, product_slug):
         matching_category = Category.objects.filter(category_slug=category_slug)
         matching_product = Product.objects.filter(product_slug=product_slug) 
         similar_products = Product.objects.filter(category_name__category_slug=category_slug).exclude(product_slug=product_slug)[:4] #TODO change later to also filter for tags
+       
+        seo = {
+            "title":f"{matching_product[0]}",
+            "desc": f"Welcome to Clothyy best website for buying clothes for man woman and kids. Look at details of {matching_product[0]}",
+            "keywords": f"shop, ecommerce, clothes, {matching_category[0]}, {matching_product[0].tag_name}"
+        }
+
         context={
             "category":all_categories,
             "this_product": matching_product[0],
@@ -149,6 +172,7 @@ def product_slug(request, category_slug, product_slug):
             "similar_products":similar_products,
             "sign_up": sing_up_form, 
             "login": login_form,
+            "seo": seo
         }
         return render(request, tmpl, context)
     else:
@@ -174,13 +198,21 @@ def search(request):
             Q(name__icontains=query) |
             Q(description__icontains=query) 
         ).distinct()
+    
+    seo = {
+        "title":f"Searching Clothyy products",
+        "desc": f"Welcome to Clothyy best website for buying clothes for man woman and kids. Search products you are interested in.",
+        "keywords": f"shop, ecommerce, clothes"
+    }
+
     context={
         "category": all_categories,
         "sign_up": sing_up_form, 
         "login": login_form,
         "query": query,
         "products":products,
-        "is_search": is_search
+        "is_search": is_search,
+        "seo": seo
         }
     return render(request, tmpl, context)
 
@@ -190,10 +222,18 @@ def faq(request):
     sing_up_form = SignUpForm() 
     login_form = myAuthenticationForm()
     user_reg(request)
+
+    seo = {
+        "title":f"Frequently asked questions",
+        "desc": f"Welcome to Clothyy best website for buying clothes for man woman and kids. Look at frequently asked questions.",
+        "keywords": f"shop, ecommerce, clothes, frequently asked questions"
+    }
+
     context={
         "category": all_categories,
         "sign_up": sing_up_form, 
         "login": login_form,
+        "seo": seo
         }
     return render(request, tmpl, context)
 
@@ -203,10 +243,18 @@ def size(request):
     sing_up_form = SignUpForm() 
     login_form = myAuthenticationForm()
     user_reg(request)
+    
+    seo = {
+        "title":f"Size guide",
+        "desc": f"Welcome to Clothyy best website for buying clothes for man woman and kids. Look at size guide.",
+        "keywords": f"shop, ecommerce, clothes, size guide"
+    }
+    
     context={
         "category": all_categories,
         "sign_up": sing_up_form, 
         "login": login_form,
+        "seo": seo
         }
     return render(request, tmpl, context)
 
@@ -216,9 +264,17 @@ def aboutus(request):
     sing_up_form = SignUpForm() 
     login_form = myAuthenticationForm()
     user_reg(request)
+
+    seo = {
+        "title":f"About us",
+        "desc": f"Welcome to Clothyy best website for buying clothes for man woman and kids. Look at about us page.",
+        "keywords": f"shop, ecommerce, clothes, about us"
+    }
+
     context={
         "category": all_categories,
         "sign_up": sing_up_form, 
         "login": login_form,
+        "seo": seo
         }
     return render(request, tmpl, context)

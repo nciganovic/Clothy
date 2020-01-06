@@ -12,9 +12,17 @@ def dashboard(request):
     tmpl = 'user/dashboard.html'
     all_categories = Category.objects.all()
     user = request.user
+
+    seo = {
+        "title":f"Dashboard",
+        "desc": f"Welcome to Clothyy best website for buying clothes for man woman and kids. Look at your user dashboard",
+        "keywords": f"shop, ecommerce, clothes"
+    }
+
     context={
     "category": all_categories,
     "user":user,
+    "seo":seo
     }
     return render(request, tmpl, context)
 
@@ -23,11 +31,19 @@ def current_orders(request):
     all_categories = Category.objects.all()
     user = request.user
     all_current_orders = ChekoutHistory.objects.filter(customer=user, is_delivered=False).order_by('-date') 
-    print(all_current_orders)
+    
+    seo = {
+        "title":f"Current orders",
+        "desc": f"Welcome to Clothyy best website for buying clothes for man woman and kids. See list of orders that will arrive to your address soon.",
+        "keywords": f"shop, ecommerce, clothes"
+    }
+
+
     context={
     "category": all_categories,
     "user":user,
     "all_current_orders":all_current_orders,
+    "seo": seo
     }
     return render(request, tmpl, context)
 
@@ -37,10 +53,18 @@ def order_history(request):
     user = request.user
     all_order_history = ChekoutHistory.objects.filter(customer=user, is_delivered=True).order_by('-date') 
     user = request.user
+
+    seo = {
+        "title":f"Order history",
+        "desc": f"Welcome to Clothyy best website for buying clothes for man woman and kids. Take a look at your order history.",
+        "keywords": f"shop, ecommerce, clothes"
+    }
+
     context={
     "category": all_categories,
     "user":user,
     "all_order_history":all_order_history,
+    "seo": seo
     }
     return render(request, tmpl, context)
 
@@ -62,9 +86,17 @@ def my_info(request):
             messages.success(request, f"From is not valid!")
     else:
         form = SignUpForm(instance=user)
+
+    seo = {
+        "title":f"My info",
+        "desc": f"Welcome to Clothyy best website for buying clothes for man woman and kids.",
+        "keywords": f"shop, ecommerce, clothes"
+    }
+
     context={
     "category": all_categories,
     "user":user,
     "form":form,
+    "seo": seo
     }
     return render(request, tmpl, context)

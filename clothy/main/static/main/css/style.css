@@ -103,7 +103,6 @@ body{
     background-image: url('../../main/img/bg-img.jpg');
 }
 .bg-img{
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
