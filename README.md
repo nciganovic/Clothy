@@ -5,7 +5,41 @@ E-commerce website for selling clothes for man, woman and kids.
 Full-stack website made with Django 2.7, Javascript (Jquery), HTML 5, CSS 3 and MySQL. Website has functionalities like buying a product, sorting products by categories, showing special product on index page, user login, user registration, payment system, shopping cart, buying history of each user, reciving email newsletter. All of those functionalities are in detail explained bellow.
 
 ## Installation
+If you are on windows:
 
+- Downlaod file and open it with cmd.
+
+Type:
+
+``
+virtualenv .
+``
+
+``
+cd scripts
+``
+
+``
+activate
+``
+
+``
+cd ..
+``
+
+``
+cd Clothy-master
+``
+
+``
+pip install -r requierments.txt
+``
+
+- Open clothy file
+
+``
+python manage.py runserver
+``
 
 ## Table of content
 1. Overview
