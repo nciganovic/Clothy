@@ -196,10 +196,10 @@ $(document).ready(function () {
             isNotesValid = true;
         }
 
-        if(!isFirstNameValid || !isLastNameValid || !isCompanyNameValid || !isCountry || !isStreetAddressValid){
+        if(!isFirstNameValid || !isLastNameValid || !isCompanyNameValid || !isCountryValid || !isStreetAddressValid){
             return false;
         }
-        if(!isApartmentNameValid || !isZipValid || !isTownValid || !isNotesValid){
+        if(!isApartmentNameValid || !isZipValid || !isTownValid || !isNotesValid || !isPhoneValid || !isEmailValid){
             return false;
         }
         
