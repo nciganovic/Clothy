@@ -36,6 +36,7 @@ $(document).ready(function() {
                 }
             } 
             if(!isAlreadyAdded){
+                alert('Product added to cart.');
                 var lsProductList = localStorage.getItem('productList');
                 if(!lsProductList){
                     listOfAddedProducts.push(productInfo);

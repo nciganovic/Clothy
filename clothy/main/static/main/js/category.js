@@ -51,5 +51,18 @@ $(document).ready(function(){
             }
         })
     })
+
+    $('#tagSelect').change(function() {
+        var selectedTag = $( "#tagSelect option:selected" ).val();
+        
+        $('.single-product').each(function(i){
+            if($(this).hasClass(selectedTag)){
+                $(this).show();
+            }
+            else{
+                $(this).hide();
+            }
+        })
+    })
     
 })

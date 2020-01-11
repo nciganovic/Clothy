@@ -29,9 +29,12 @@ $(document).ready(function() {
                 totalPrice +=  Number(l.price) * Number(l.amount);
             }
             var twoDecPrice = totalPrice.toFixed(2);
+            var totalSum = Number(twoDecPrice) + Number(shippingFee);
+            var totalSumDec = totalSum.toFixed(2);
+
             $('.totalPriceInCart').text(twoDecPrice);
             $('#subtotal').text(twoDecPrice);
-            $('#total').text(Number(twoDecPrice) + Number(shippingFee));
+            $('#total').text(Number(totalSumDec));
         }
     }
 

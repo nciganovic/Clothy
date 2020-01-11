@@ -18,8 +18,14 @@
         <div class="row mt-5 mb-5 ml-0 mr-0">
             <div class="col-12 d-flex justify-content-center">
                 {% for tag in this_tags %}
-                    <div class="m-2 underline-on-hover"><a class="font-15 text-dark text-decoration-none single-tag" href="#">{{ tag }}</a></div>
+                    <div class="m-2 underline-on-hover d-none-md"><a class="font-15 text-dark text-decoration-none single-tag" href="#">{{ tag }}</a></div>
                 {% endfor %}
+                <select id="tagSelect" class="p-2 w-60 d-none d-block-md" name="tagSelect">
+                    <option value="single-product">Select category</option>
+                    {% for tag in this_tags %}
+                    <option value="{{ tag }}">{{ tag }}</option>
+                    {% endfor %}
+                </select>
             </div>
         </div>
         
